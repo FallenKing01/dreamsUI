@@ -1,0 +1,15 @@
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(250, 114, 114, 0.973);
+    border-radius: 10px;
+  
+  }
+.alertMessage{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center; 
+}

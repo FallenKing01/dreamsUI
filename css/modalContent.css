@@ -1,0 +1,45 @@
+/* Style for labels within the modal */
+.modalLbl  {
+    display: block;
+    margin-bottom: -20px;
+    font-size: 16px;
+   margin-top: 25px;
+    color: #333; /* Text color */
+    margin-left: -340px;
+    font-weight: bold;
+  }
+
+  
+
+  /* Style for inputs within the modal */
+  .modalInput {
+    width: 80%;
+    position: absolute;
+    left: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333; /* Text color */
+    background-color: #f9f9f9;
+    transition: border 0.3s;
+  }
+  
+  /* Style for inputs within the modal on focus */
+  .modalInput:focus {
+    border-color: #007bff; /* Change to the color you prefer on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional box-shadow on focus */
+    outline: none;
+  }
+.modalForm{
+  margin-top: 50px;
+}
+
+.titleModal{
+  margin-bottom: 80px;
+  text-transform:uppercase;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,141 @@
+
+  .modalEmployer{
+    display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  }
+  .modalEmployerContent{
+    background-color: #fff;
+    width: 600px;
+    height: 800px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    align-items: center;  
+    border-radius:20px;
+    overflow: auto;
+
+  }
+  .modalEmployerContent input {
+    width: 70%;
+    margin-left: -20px;
+  }
+.emp-emailLbl{
+  color: black ;
+  display: block;
+
+    font-size: 16px;
+    margin-top: 65px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+    margin-left: -340px;
+    font-weight: bold;
+}
+.emp-pass{
+  color: black ;
+  display: block;
+
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+    margin-left: -310px;
+    font-weight: bold;
+}
+.emp-role{
+  color: black ;
+  display: block;
+
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+    margin-left: -355px;
+    font-weight: bold;
+}
+.emp-salary{
+  color: black ;
+  display: block;
+
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+    margin-left: -345px;
+    font-weight: bold;
+}
+.emp-birth{
+  color: black ;
+  display: block;
+
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+    margin-left: -325px;
+    font-weight: bold;
+}
+.emp-decription{
+  color: black ;
+  display: block;
+
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+    margin-left: -305px;
+    font-weight: bold;
+}
+.emp-close {
+  position: absolute;
+  right: 590px;
+  top: 20px;
+  width: 20px; /* Reduced size */
+  height: 20px; /* Reduced size */
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.emp-close:hover {
+  opacity: 1;
+}
+
+.emp-close:before, .emp-close:after {
+  position: absolute;
+  left: 10px; /* Adjusted position */
+  content: ' ';
+  height: 22px; /* Reduced size */
+  width: 2px;
+  background-color: #333;
+}
+
+.emp-close:before {
+  transform: rotate(45deg);
+}
+
+.emp-close:after {
+  transform: rotate(-45deg);
+}
+.submitEmpl{
+ 
+  margin-top: 180px;
+  margin-left: 0px;
+  width: 30%;
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.createEmpl{
+    border: none; 
+    border-radius: 5px; 
+    width: 200px;
+    font-size: 16px; 
+    font-weight: bold; 
+    text-align: center; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    background: linear-gradient(to bottom, #00ff4c, #00fd00c5); 
+    position: absolute;
+    left: 320px;
+    top: 70px;
+}

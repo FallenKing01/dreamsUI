@@ -1,0 +1,38 @@
+.containerEmployerCard{
+    position: absolute;
+    margin-left: 50px;
+    
+}
+.photoIcon{
+    color: black;
+    position: absolute;
+}
+.employerCardBack {
+    width: 340px;
+    height: 350px;
+    margin-left: 270px;
+    float: left;
+    margin-top: 200px;
+    margin-bottom: 20px;
+ 
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+  }
+.butomCardEmpl{
+    width: 340px;
+    height: 55px;
+    
+    position: absolute;
+    margin-top:330px;
+    z-index: 0.5;
+    background-color: #008000;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+}

@@ -1,0 +1,79 @@
+/* sidebar.css */
+
+.sidebar {
+  width: 60px; /* Initial width */
+  height: 100vh; /* Full viewport height by default */
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #27005D;
+  color: #fff;
+  padding: 20px;
+  transition: width 0.5s ease; /* Slower transition with ease timing function */
+  overflow: hidden; /* Hide overflowing content */
+  border-radius: 0px 20px 0 0px; /* Adjust border radius */
+}
+
+.sidebar:hover {
+  width: 150px;
+}
+
+.sidebar-item {
+  margin-left: -300%; /* Initial state: hidden to the left */
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: margin-left 0.9s ease; /* Transition for sliding in */
+  justify-content: center;
+  margin-top: 20px;
+}
+.sidebar-item:first-child{
+  margin-top: -50px;
+}
+
+.sidebar-item::after{
+  transition: all ease-in-out .5s;
+  background: none repeat scroll 0 0 #ffffff;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+}
+
+.sidebar-item:not(:first-child):hover:after{
+  width: 100%;
+
+}
+
+
+
+
+.sidebar:hover .sidebar-item {
+  margin-left: 0; /* Slide in from left when expanded */
+}
+
+.sidebar:hover .sidebar-item:first-child {
+  margin-left: 0px; /* Slide in from left when expanded */
+}
+
+
+.itm{
+  margin-top: 180px;
+}
+
+.logo {
+  width: 0; /* Initially set the width to 0 */
+  overflow: hidden; /* Hide the logo */
+  transition: width 0.5s ease; /* Transition for smooth width changes */
+  width: 200px;
+  height: 200px;
+  margin-left: -30%;
+}
+
+.sidebar:hover .logo {
+  margin-left: -7px;
+  margin-top: -30px;
+  transition: margin-left 1.9s ease;}
+
+.icons{
+padding: 0px 20px 0px 0px;
+}

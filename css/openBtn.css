@@ -1,0 +1,55 @@
+.btn-Open{
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-left: 15px;
+    background: linear-gradient(to bottom, #008000, #008000);
+    border-radius: 25px;
+}
+.btn-Delete{
+    
+    position: absolute;
+    width: 65px;
+    height: 35px;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-left: 165px;
+    background: linear-gradient(to bottom, #ff0000, #ff0000);
+    border-radius: 25px;
+}
+.emplEdit{
+    position: absolute;
+    width: 80px;
+    height: 45px;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-left: 130px;
+    background: linear-gradient(to bottom, #ffa500, #ffa500); /* Orange color */
+
+    border-radius: 25px;
+
+}
+.openEmpl{
+    position: absolute;
+    width: 80px;
+    height: 45px;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-left: 15px;
+    background: linear-gradient(to bottom, #008000, #008000);
+    border-radius: 25px;
+}
+.emplDelete{
+    position: absolute;
+   
+    width: 80px;
+    height: 45px;
+    font-size: 14px;
+    margin-top: 14px;
+    margin-left: 245px;
+    background: linear-gradient(to bottom, #ff0000, #ff0000);
+    border-radius: 25px;
+
+}

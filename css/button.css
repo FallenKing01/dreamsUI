@@ -1,0 +1,67 @@
+button {
+   
+    color: #fff; /* White text color */
+    width: 150px;
+    height: 50px;
+   
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-align: center; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+   
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 6px 8px rgba(0, 0, 0, 0.1); /* Create a 3D effect with shadows */
+    position: relative;
+}
+
+button::before {
+    
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid #6A00B6; 
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #6A00B6, #4B0082); /* Darker purple gradient on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 12px rgba(0, 0, 0, 0.2); /* Adjusted shadow on hover */
+}
+
+.create-btn{
+    left: 250px;
+    top: 40px;
+}
+.close-btn{
+    background: linear-gradient(to bottom, #ff7b7b, #ff4444); /* Purple gradient background */
+    left: -120px;
+    top: 190px;
+}
+.submit-login-btn{
+    background: linear-gradient(to bottom, #00ff4c, #00fd00c5); /* Purple gradient background */
+    left: 160px;
+    top: 320px;
+}
+
+.addProducts{
+    background: linear-gradient(to bottom, #00ff4c, #00fd00c5); /* Purple gradient background */
+    left: 1300px;
+    top: 100px;
+}
+
+.submitProduct{
+    position: absolute;
+    left: 450px;
+    top: 620px;
+    background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
+}
+#productQty{
+    margin-top: 50px;
+    width: 350px;
+}

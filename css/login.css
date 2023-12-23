@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.lg-back{
+    width: 500px;
+    height: 570px;
+    background-color: #27005D;
+    border-radius: 20px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.username-lbl{
+    position: absolute;
+    left: 12%;
+    top: 15%;
+   
+}
+.password-lbl{
+    position: absolute;
+    left: 12%;
+    margin-top: 38%;
+}
+label{
+    font-size: 25px;
+}
+.submit-btn {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    width: 350px;
+  }
+  input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    width: 350px;
+  }
+
+  input[type="checkbox"] {
+    width: 14px; 
+    height: 14px; 
+  }
+  .username-inp1{
+    
+    position: absolute;
+    margin-top: 25%;
+    left: 12%;
+  }
+
+  .password-inp2{
+    
+    position: absolute;
+    margin-top: 45%;
+    left: 12%;
+}
+.forgot{
+    position: absolute;
+    margin-top: 50%;
+    font-size: 17px;
+    left:61%;
+}
+.check{
+    position: absolute;
+    margin-top: 50.5%;
+    font-size: 20px;
+    left:56%;
+    
+}

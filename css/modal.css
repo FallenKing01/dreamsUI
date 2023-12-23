@@ -1,0 +1,42 @@
+/* Modal container - hidden by default */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.modalSubmit{
+margin-top: 5px;
+  margin-left: 100px;
+}
+.modalClose{
+  margin-left: -50px;
+}
+.modal-content {
+  background-color: #fff;
+  width: 600px;
+  height: 700px;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  align-items: center;  
+  border-radius:20px;
+}
+#tableCapacity{
+  width: 450px;
+}
+#tableName{
+  width: 450px; 
+}
+
+
