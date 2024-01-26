@@ -1,29 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "../css/ModalContent.css";
-
+import '../css/ModalContent.css';
 const ModalAddProduct = ({ onClose, tableId }) => {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [qty, setQty] = useState("");
+  const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState('');
+  const [qty, setQty] = useState('');
+  const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem('token');
+
+      try {
+        const userResponse = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/user/getuser/${localStorage.getItem("userId")}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        const adminId = userResponse.data.adminId;
+
+        const menuResponse = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/menu/getproducts/${adminId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        setProducts(menuResponse.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const token = localStorage.getItem('token');
-      
+      const selectedProductPrice = filteredProducts.find(product => product.name === selectedProduct)?.price || 0;
+
       await axios.post(`https://dreamsdeluxeapi.azurewebsites.net/products/add/${localStorage.getItem("userId")}`, {
-        
-        name: name,
-        price: parseFloat(price), // Convert price to a float
-        qty: parseInt(qty, 10),    // Convert qty to an integer
+        name: selectedProduct,
+        price: parseFloat(selectedProductPrice),
+        qty: parseInt(qty, 10),
         table_id: tableId.toString(),
       }, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          'Authorization': `Bearer ${token}`,
+        },
       });
+
       console.log(localStorage.getItem("userId"));
       console.log(tableId);
       onClose();
@@ -35,36 +67,41 @@ const ModalAddProduct = ({ onClose, tableId }) => {
   return (
     <form className='modalForm' onSubmit={handleSubmit}>
       <h2 className='titleModal'>Create a new product</h2>
-      <label htmlFor="productName" className='modalLbl'>Nume produs : </label>
-      <br />
-      <br />
+      
+      <label htmlFor="productFilter" className='modalLbl'>Filter Products:</label>
       <input 
-        id="productName"
+        id="productFilter"
         type="text" 
-        placeholder='Masa 1' 
+        placeholder="Type to filter products"
         className="modalInput"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
       />
-      <br />
-      <br />  
-      <label htmlFor="productPrice"  className='modalLbl'>Pret produs: </label>
+      
       <br />
       <br />
-      <input 
-        id="productPrice"
-        type="number" 
-        step="0.01"
-        placeholder="39.99" 
+
+      <label htmlFor="productSelect" className='modalLbl'>Choose a product:</label>
+      <br />
+      <br />
+      <select
+        id="productSelect"
         className="modalInput"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        value={selectedProduct}
+        onChange={(e) => setSelectedProduct(e.target.value)}
         required
-      />
+      >
+        <option value="" disabled>Select a product</option>
+        {filteredProducts.map((product) => (
+          <option key={product.id} value={product.name}>
+            {product.name}
+          </option>
+        ))}
+      </select>
       <br />
       <br />
-      <label htmlFor="productQty"  className='modalLbl'>Numar bucati : </label>
+
+      <label htmlFor="productQty" className='modalLbl'>Quantity:</label>
       <input 
         id="productQty"
         type="number" 
@@ -76,6 +113,7 @@ const ModalAddProduct = ({ onClose, tableId }) => {
       />
       <br />
       <br />
+
       <button type="submit" className='submit-btn submitProduct'>Submit</button>
     </form>
   );

@@ -15,7 +15,7 @@
   }
   .modalEmployerContent{
     background-color: #fff;
-    width: 600px;
+    width: 1000px;
     height: 800px;
     padding: 20px;
     border-radius: 4px;
@@ -35,74 +35,88 @@
   color: black ;
   display: block;
 
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 65px;
     margin-bottom: -20px;
     color: #333; /* Text color */
-    margin-left: -340px;
+    margin-left: -670px;
     font-weight: bold;
 }
 .emp-pass{
   color: black ;
   display: block;
 
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 20px;
     margin-bottom: -20px;
     color: #333; /* Text color */
-    margin-left: -310px;
+    margin-left: -620px;
+    
+    font-weight: bold;
+}
+.emp-pass2{
+  color: black ;
+  display: block;
+position: absolute;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 90px;
+    margin-bottom: -20px;
+    color: #333; /* Text color */
+   
+    
     font-weight: bold;
 }
 .emp-role{
   color: black ;
   display: block;
 
-    font-size: 16px;
-    margin-top: 20px;
+    font-size: 20px;
+    margin-top: -340px;
     margin-bottom: -20px;
     color: #333; /* Text color */
-    margin-left: -355px;
+    margin-left: 300px;
     font-weight: bold;
 }
 .emp-salary{
   color: black ;
   display: block;
 
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: -20px;
+    font-size: 20px;
+    margin-top: 23px;
+    margin-bottom: -10px;
     color: #333; /* Text color */
-    margin-left: -345px;
+    margin-left: 320px;
     font-weight: bold;
 }
 .emp-birth{
   color: black ;
   display: block;
 
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: -20px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: -10px;
     color: #333; /* Text color */
-    margin-left: -325px;
+    margin-left: 350px;
     font-weight: bold;
 }
 .emp-decription{
   color: black ;
   display: block;
 
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: -20px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: -10px;
     color: #333; /* Text color */
-    margin-left: -305px;
+    margin-left: 380px;
     font-weight: bold;
 }
 .emp-close {
   position: absolute;
-  right: 590px;
+  right: 990px;
   top: 20px;
-  width: 20px; /* Reduced size */
-  height: 20px; /* Reduced size */
+  width: 30px; /* Reduced size */
+  height: 30px; /* Reduced size */
   opacity: 0.3;
   cursor: pointer;
 }
@@ -129,7 +143,7 @@
 }
 .submitEmpl{
  
-  margin-top: 180px;
+  margin-top: 150px;
   margin-left: 0px;
   width: 30%;
   height: 40px;
@@ -139,3 +153,59 @@
   border-radius: 4px;
   cursor: pointer;
 }
+.modalLblEmplName{
+  position: absolute;
+  left: 108px;
+  font-size: 20px;
+ 
+ 
+  color: #333; /* Text color */
+  font-weight: bold;
+}
+#employerName{
+ position: absolute;
+ top: 190px;
+  width: 30%;
+  margin-left: 8px;
+}
+#employerEmail{
+  width: 30%;
+  margin-left: 8px;
+}
+#employerPassword{
+  width: 30%;
+  margin-left: 8px;
+}
+#employerRole{
+  width: 30%;
+  margin-left: 500px;
+}
+#employerSalary{
+  width: 30%;
+  margin-left: 500px;
+  margin-top: -10px;
+}
+#employerBirthdate{
+  width: 30%;
+  margin-left: 500px;
+  margin-top: -10px;
+}
+#employerPassword2{
+  position: absolute;
+  width: 30%;
+  margin-left: 8px;
+  margin-top:25px;
+}
+
+.modalTextarea {
+  width: 30%;
+  margin-left: 500px;
+  height: 200px;
+  resize: none; /* Disable textarea resizing */
+  padding: 10px; /* Optional: Add padding for better aesthetics */
+  background-color: #f9f9f9;
+  border-color: black;
+  border-radius: 10px;
+ 
+}
+

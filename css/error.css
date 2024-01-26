@@ -1,0 +1,80 @@
+.error-alert {
+  position: fixed;
+  top: 680px;
+  left: 3200px; /* Initially off-screen to the right */
+  width: 350px;
+  background-color: #ff4d4f;
+  color: #fff;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  opacity: 0; /* Initially transparent */
+  animation: slideIn 1.5s ease-in-out forwards, slideBack 1.5s ease-in-out 6s forwards; /* Animation for initial slide-in and slide back after 6 seconds */
+}
+
+@keyframes slideIn {
+  0% {
+    left: 3200px; /* Start off-screen to the right */
+    opacity: 0; /* Initially transparent */
+  }
+  100% {
+    left: 1500px; /* End position to bring it into view from the right */
+    opacity: 1; /* Make it fully visible */
+  }
+}
+
+@keyframes slideBack {
+  0% {
+    left: 1400px; /* Start position to slide back */
+    opacity: 1; /* Make it fully visible */
+  }
+  100% {
+    left: 3200px; /* End position off-screen to the right */
+    opacity: 0; /* Fade out */
+  }
+}
+
+
+
+  
+  .error-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .error-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .error-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .error-content {
+    margin-top: 8px;
+    font-size: 18px;
+  }
+  
+  .countdown-bar {
+    height: 4px;
+    background-color: #fff;
+    margin-top: 8px;
+  }
+  
+  /* Add this class to make it visible */
+  .visible {
+    left: 0;
+  }
+  
+  /* Media query for smaller screens (adjust as needed) */
+  @media (max-width: 768px) {
+    .error-alert {
+      font-size: 14px;
+    }
+  }
+  

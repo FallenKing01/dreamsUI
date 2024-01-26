@@ -54,6 +54,11 @@ button:hover {
     left: 1300px;
     top: 100px;
 }
+.addProductsMenu{
+    left: 1500px;
+    top: 300px;
+    width: 180px;
+}
 
 .submitProduct{
     position: absolute;
