@@ -1,0 +1,89 @@
+
+  .tableMap-container {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
+  .tableMap-celscontainer{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-left: 10%;
+    
+  }
+  .grid-background{
+    position: absolute;
+    background-color: #a15e11;
+    border-radius: 10px;
+    left: 6%;
+    width: 70%;
+    height: 100%;
+    z-index: -1;
+  }
+  .tableMap-grid {
+    display: grid;
+    width: 90%;
+    column-gap: 0.5%;
+}
+
+.tableMap-cell {
+  border: 1px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 75%;
+  background-color: white;
+}
+  
+  .table {
+    background-color: rgba(81, 255, 0, 0.658);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .wall {
+    background-color: rgb(94, 92, 92);
+  }
+  
+  .path {
+    background-color: rgb(247, 92, 81);
+  }
+  
+  .tableMap-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #27005D;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 10%;
+    height: 100%; 
+  }
+  .save-btn{
+    background-color: rgb(27, 214, 27);
+  }
+  .reset-map{
+    background-color: rgba(255, 187, 0, 0.884);
+  }
+  button{
+    margin-top: 10%;
+    padding: 10px;
+    background-color: rgb(120, 167, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    height: 8%;
+  }
+
+  #tableMap-counter{
+    color: white;
+    margin-top:50%;
+
+  }

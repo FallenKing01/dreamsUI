@@ -1,3 +1,4 @@
+
 .billContainer {
     width: 60%;
     margin-left: 0;
@@ -70,11 +71,13 @@ width: 300px;
 }
 .billPrice{
     position: relative;
-    left: -1000px;
+    left: -90%;
 }
 .resetBtn{
     position: absolute;
     background: linear-gradient(to bottom, #ff7f00, #ff5500);
-    left: 1320px;
-    top: 200px;
+    left: 117.5%;
+    width: 180px;
+    height: 40px;
+    top: 25%;
 }

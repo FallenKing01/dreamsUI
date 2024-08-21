@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+
 import "../css/ModalContent.css"
 
 const ModalContent = ({ onClose }) => {
@@ -11,8 +13,10 @@ const ModalContent = ({ onClose }) => {
   
     try {
       const token = localStorage.getItem('token');
-  
-      await axios.post("https://dreamsdeluxeapi.azurewebsites.net/tables/create", {
+      const decodedToken = jwtDecode(token);      
+      const idUser = decodedToken.id.toString(); // Convert ID to string
+      console.log("idUser:", idUser);
+      await axios.post(`https://dreamsdeluxeapi.azurewebsites.net/tables/create/${idUser}`, { 
         name: name,
         capacity: capacity,
       }, {

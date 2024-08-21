@@ -1,0 +1,64 @@
+/* src/css/tableMapView.css */
+.modalContent {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.gridContainer {
+  display: grid;
+  gap: 5px;
+}
+
+.gridContainer.scaled {
+  transform: scale(0.6); /* Adjust the scale as needed */
+  transform-origin: top left;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.gridCell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.table {
+  background-color: green;
+}
+
+.wall {
+  background-color: gray;
+}
+
+.path {
+  background-color: white;
+}
+
+
+.closeMapView {
+ position: absolute;
+ left: 5%;
+ top: -10%;
+}
+
+.showTableMap{
+  position: absolute;
+  left: 86%;
+  height: 40px;
+}
+
+.closeMapView.scaledclose {
+  position: absolute;
+  left: -50%;
+  top: -1%;
+  background-color: red;
+  scale: 1.5;
+  
+}

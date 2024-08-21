@@ -4,3 +4,7 @@ body {
   color: aliceblue;
   overflow-y: scroll;
 }
+button{
+  width: 180px;
+  height: 40px;
+}

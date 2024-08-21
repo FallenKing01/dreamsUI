@@ -1,70 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/ModalContent.css';
-const ModalAddProduct = ({ onClose, tableId }) => {
+import { Product } from '../classes/product.jsx';
+
+const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState('');
   const [qty, setQty] = useState('');
   const [filter, setFilter] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false); 
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchProducts = async () => {
       const token = localStorage.getItem('token');
-
       try {
-        const userResponse = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/user/getuser/${localStorage.getItem("userId")}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        });
+        
+       
 
-        const adminId = userResponse.data.adminId;
-
-        const menuResponse = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/menu/getproducts/${adminId}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-
-        setProducts(menuResponse.data);
+        setProducts(menuProducts);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching products:', error);
       }
     };
 
-    fetchData();
+    fetchProducts();
   }, []);
 
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const handleFilterChange = (e) => setFilter(e.target.value);
+
+  const handleProductChange = (e) => setSelectedProduct(e.target.value);
+
+  const handleQtyChange = (e) => setQty(e.target.value);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true); 
+
     try {
       const token = localStorage.getItem('token');
-      const selectedProductPrice = filteredProducts.find(product => product.name === selectedProduct)?.price || 0;
-
-      await axios.post(`https://dreamsdeluxeapi.azurewebsites.net/products/add/${localStorage.getItem("userId")}`, {
+      const selectedProductData = products.find(product => product.name === selectedProduct);
+  
+      if (!selectedProductData) {
+        throw new Error('Selected product not found');
+      }
+  
+      const { price: selectedProductPrice, id: menuProductId } = selectedProductData;
+  
+      const response = await axios.post(`https://dreamsdeluxeapi.azurewebsites.net/products/add/${localStorage.getItem("userId")}`, {
+        menuProductId: menuProductId.toString(),
         name: selectedProduct,
         price: parseFloat(selectedProductPrice),
         qty: parseInt(qty, 10),
         table_id: tableId.toString(),
       }, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log(localStorage.getItem("userId"));
-      console.log(tableId);
+      
+      const productCreatedId = response.data.id;
+      const productCreatedQty = response.data.qty;
+      const newProduct = new Product(productCreatedId, selectedProduct, parseFloat(selectedProductPrice), productCreatedQty, tableId.toString(),menuProductId.toString());
+  
+      onProductAdded(newProduct);
       onClose();
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error submitting product:", error);
+      setIsSubmitting(false); 
     }
   };
 
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
+    
     <form className='modalForm' onSubmit={handleSubmit}>
       <h2 className='titleModal'>Create a new product</h2>
       
@@ -75,7 +86,7 @@ const ModalAddProduct = ({ onClose, tableId }) => {
         placeholder="Type to filter products"
         className="modalInput"
         value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={handleFilterChange}
       />
       
       <br />
@@ -88,7 +99,7 @@ const ModalAddProduct = ({ onClose, tableId }) => {
         id="productSelect"
         className="modalInput"
         value={selectedProduct}
-        onChange={(e) => setSelectedProduct(e.target.value)}
+        onChange={handleProductChange}
         required
       >
         <option value="" disabled>Select a product</option>
@@ -108,13 +119,21 @@ const ModalAddProduct = ({ onClose, tableId }) => {
         placeholder="5" 
         className="modalInput"
         value={qty}
-        onChange={(e) => setQty(e.target.value)}
+        onChange={handleQtyChange}
         required
+        min={1}
       />
       <br />
       <br />
 
-      <button type="submit" className='submit-btn submitProduct'>Submit</button>
+      <button 
+        type="submit" 
+        className='submit-btn submitProduct'
+        disabled={isSubmitting} // Disable the button if submitting
+      >
+        
+        Submit
+      </button>
     </form>
   );
 };

@@ -6,11 +6,19 @@ import SidebarAdmin from '../components/sidebarAdmin';
 import CreateBtn from '../components/createTable';
 import CardTable from '../components/tableComponent';
 import { ColorRing } from 'react-loader-spinner';
+import TableMap from '../components/tableMapView';
 
 function Home() {
   const [tables, setTables] = useState([]);
   const [loader, setLoader] = useState(true);
   const [userRole, setUserRole] = useState("");
+
+  const isTokenExpired = (decoded) => {
+    const currentTime = Math.floor(Date.now() / 1000);
+    console.log("Current Time:", currentTime);
+    console.log("Token Expiry Time:", decoded.exp);
+    return decoded.exp < currentTime;
+  };
 
   useEffect(() => {
     const fetchTables = async () => {
@@ -18,12 +26,23 @@ function Home() {
 
       if (token) {
         const decoded = jwtDecode(token);
+
+        if (isTokenExpired(decoded)) {
+          console.error('Token has expired');
+          localStorage.removeItem('token');
+          localStorage.removeItem('userId');
+          navigate('/login'); 
+          return;
+        }
+
         const userId = String(decoded.id);
         localStorage.setItem('userId', userId);
 
         try {
           if (decoded.role === 'admin') {
             setUserRole(decoded.role);
+            localStorage.setItem('adminId', userId);
+
             const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/tables/gettables/${userId}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -33,12 +52,15 @@ function Home() {
           } else {
             setUserRole(decoded.role);
             let adminId = null;
+            localStorage.setItem('adminId', adminId);
             const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/user/getuseradmin/${userId}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
             });
             adminId = response.data.id;
+            localStorage.setItem('adminId', adminId);
+            localStorage.setItem('adminId', adminId);
             const responseAdmin = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/tables/gettables/${adminId}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -80,6 +102,7 @@ function Home() {
       )}
       {!loader && (
         <div>
+          <TableMap adminId={localStorage.getItem('adminId')} />
           {userRole === 'admin' ? <SidebarAdmin /> : <SidebarUser />}
           <CreateBtn />
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>

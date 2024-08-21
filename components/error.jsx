@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import '../css/error.css'; // You'll need to create a CSS file for styling
+import '../css/error.css'; 
 
 const ErrorAlert = ({ title, message, onClose }) => {
   const [countdown, setCountdown] = useState(7);

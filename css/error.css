@@ -1,7 +1,7 @@
 .error-alert {
   position: fixed;
-  top: 680px;
-  left: 3200px; /* Initially off-screen to the right */
+  top: 75%;
+  margin-left: -25%;
   width: 350px;
   background-color: #ff4d4f;
   color: #fff;
@@ -16,10 +16,12 @@
   0% {
     left: 3200px; /* Start off-screen to the right */
     opacity: 0; /* Initially transparent */
+
   }
   100% {
     left: 1500px; /* End position to bring it into view from the right */
     opacity: 1; /* Make it fully visible */
+
   }
 }
 

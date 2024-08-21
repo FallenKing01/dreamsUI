@@ -8,6 +8,8 @@ import Bill from '../pages/bill';
 import Employer from '../pages/employers';
 import EmployerDataPage from '../components/employerDataPage';
 import Menu from '../pages/menu';
+import TableMap from '../pages/tableMap';
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,7 @@ function App() {
           <Route path="/employer" element={<Employer />} />
           <Route path="/employer/:idEmployer" element={<EmployerDataPage />} />
           <Route path="/menu" element={<Menu />} />
+          <Route path="/tablemap" element={<TableMap />} />
           
         </Routes>
       </BrowserRouter>
