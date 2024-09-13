@@ -70,8 +70,7 @@
 width: 300px;  
 }
 .billPrice{
-    position: relative;
-    left: -90%;
+   
 }
 .resetBtn{
     position: absolute;

@@ -28,7 +28,7 @@ function Employer() {
             Authorization: `Bearer ${token}`,
           },
         });
-
+        console.log('Employers:', response.data);
         setEmployers(response.data);
       } catch (error) {
         console.error('Error fetching employers:', error);

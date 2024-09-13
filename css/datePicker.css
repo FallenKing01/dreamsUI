@@ -1,0 +1,100 @@
+/* Custom DatePicker Styles */
+.custom-datepicker {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 70% !important; /* Adjust width to fit the wrapper */
+}
+
+.custom-datepicker:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+    outline: none;
+}
+
+.react-datepicker__header {
+    background-color: black; /* Background color of the header */
+    border-bottom: none;
+    color: white; /* Text color in the header */
+}
+
+.react-datepicker__day,
+.react-datepicker__day-name,
+.react-datepicker__time-name {
+    color: white; /* Text color for day names and days */
+}
+
+.react-datepicker__day--selected {
+    background-color: #444; /* Background color for selected day */
+    color: white; /* Text color for selected day */
+}
+
+.react-datepicker__day--today {
+    background-color: #333; /* Background color for today's day */
+    color: white; /* Text color for today's day */
+}
+
+.react-datepicker__day:hover {
+    background-color: #555; /* Background color for hovered day */
+    color: white; /* Text color for hovered day */
+}
+
+.react-datepicker__month {
+    background-color: black; /* Background color of the month view */
+}
+
+.react-datepicker__week {
+    background-color: black; /* Background color of the week view */
+}
+
+.react-datepicker__current-month {
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* Text color for the current month */
+}
+
+.react-datepicker__triangle {
+    display: none; /* Hide the triangle pointer */
+}
+
+.dateContainer {
+    top: 50px;
+    position: absolute;
+    left: 60%;
+    background-color: black;
+    width: 30%; /* Adjust width as needed */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dateTitleComponent {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.datePickersContainer {
+    display: flex;
+    
+    margin-left: 10%;
+}
+
+.datePickerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; /* Ensure full width */
+}
+
+.datePickerWrapper label {
+    margin-bottom: 8px;
+    color: white;
+}

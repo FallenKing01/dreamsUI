@@ -81,11 +81,11 @@ export default function Bill() {
     });
   };
 
-  const handleDelete = async (productId, emplId) => {
+  const handleDelete = async (productId) => {
     const token = localStorage.getItem('token');
   
     try {
-      await axios.delete(`https://dreamsdeluxeapi.azurewebsites.net/products/delall/${productId}/${emplId}`, {
+      await axios.delete(`https://dreamsdeluxeapi.azurewebsites.net/products/delall/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -231,7 +231,7 @@ export default function Bill() {
                   <td>{item.qty}</td>
                   <td>{item.price}</td>
                   <td>
-                    <button className="deleteButton" onClick={() => handleDelete(item.id, localStorage.getItem("userId"))}>Delete</button>
+                    <button className="deleteButton" onClick={() => handleDelete(item.id)}>Delete</button>
                   </td>
                 </tr>
               ))}
