@@ -1,0 +1,59 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Ensure it stays above other elements */
+}
+
+.modal-content {
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%; /* Full width on smaller screens */
+    height: 80%;
+    max-width: 500px; /* Max width of the modal */
+    position: relative; /* For positioning close button */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    color: #333;
+}
+
+.close-modal {
+    
+    background: none;
+    border: none;
+    font-size: 24px; /* Slightly larger close button */
+    cursor: pointer;
+    color: #333;
+    margin-left: -90%;
+    margin-top: 0%;
+   
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .close-modal {
+        font-size: 20px; /* Smaller close button on mobile */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .modal-content {
+        padding: 18px; /* Adjust padding for medium screens */
+    }
+
+    .close-modal {
+        font-size: 22px; /* Adjust close button size */
+    }
+}

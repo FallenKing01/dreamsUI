@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ImageUploadForm = ({ email }) => {
+const ImageUploadForm = ({ email ,onClose}) => {
   const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(false);
+
 
   const handleImageChange = (event) => {
     const selectedImage = event.target.files[0];
     setImage(selectedImage);
+    setPreview(true);
   };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,20 +28,40 @@ const ImageUploadForm = ({ email }) => {
         },
       });
 
-      console.log('API Response:', response.data);
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
+  const triggerFileInput = () => {
+    document.getElementById('image').click();
+  };
+
   return (
     <div>
-      <h1>Image Upload Form</h1>
+      <h1>Image upload form</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <label htmlFor="image">Select Image:</label>
-        <input type="file" id="image" accept="image/*" onChange={handleImageChange} required />
+       <button type="button" onClick={triggerFileInput} className="customUploadButton">
+        Choose image...
+      </button>
+        <input
+        type="file"
+        id="image"
+        accept="image/*"
+        onChange={handleImageChange}
+        required
+        style={{ display: 'none' }} // Hide the actual input field
+      />        
+        
 
-        <button type="submit">Upload Image</button>
+        <div className='previewContainer'>
+          { preview ? <img src={URL.createObjectURL(image)} alt="preview" className='imagePreview'/> : null
+        }
+        </div>
+       
+        <button className="closeProfileImage" onClick={onClose}>Close</button>
+
+        <button type="submit" className="saveProfilePhoto">Save changes</button>
       </form>
     </div>
   );

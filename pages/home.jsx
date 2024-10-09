@@ -7,8 +7,10 @@ import CreateBtn from '../components/createTable';
 import CardTable from '../components/tableComponent';
 import { ColorRing } from 'react-loader-spinner';
 import TableMap from '../components/tableMapView';
+import { Navigate } from "react-router-dom";
 
 function Home() {
+  const [tokenExipired, setTokenExpired] = useState(false);
   const [tables, setTables] = useState([]);
   const [loader, setLoader] = useState(true);
   const [userRole, setUserRole] = useState("");
@@ -19,37 +21,51 @@ function Home() {
     console.log("Token Expiry Time:", decoded.exp);
     return decoded.exp < currentTime;
   };
+ 
+  
 
   useEffect(() => {
     const fetchTables = async () => {
       const token = localStorage.getItem('token');
-
       if (token) {
         const decoded = jwtDecode(token);
-
+      
         if (isTokenExpired(decoded)) {
           console.error('Token has expired');
           localStorage.removeItem('token');
           localStorage.removeItem('userId');
-          navigate('/login'); 
-          return;
+          
+          setTokenExpired(true);
         }
-
         const userId = String(decoded.id);
         localStorage.setItem('userId', userId);
-
+        localStorage.setItem('email', decoded.username);
         try {
           if (decoded.role === 'admin') {
             setUserRole(decoded.role);
             localStorage.setItem('adminId', userId);
-
+           
             const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/tables/gettables/${userId}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
             });
             setTables(response.data);
-          } else {
+          } 
+          if(decoded.role=='client')
+          {
+            setUserRole(decoded.role);
+            const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/user/getuserbyemail/${localStorage.getItem('email')}`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+            localStorage.setItem('role', response.data.role);
+            localStorage.setItem('location', response.data.location);
+            localStorage.setItem('county', response.data.county);
+            } 
+          if(decoded.role !='client' && decoded.role !='admin') 
+          {
             setUserRole(decoded.role);
             let adminId = null;
             localStorage.setItem('adminId', adminId);
@@ -59,7 +75,6 @@ function Home() {
               },
             });
             adminId = response.data.id;
-            localStorage.setItem('adminId', adminId);
             localStorage.setItem('adminId', adminId);
             const responseAdmin = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/tables/gettables/${adminId}`, {
               headers: {
@@ -99,7 +114,8 @@ function Home() {
             <div style={{ color: 'white', fontSize: '20px', marginTop: '10px', marginLeft: '5px' }}>Loading...</div>
           </div>
         </div>
-      )}
+      )} 
+    {userRole === 'client' && !loader && <Navigate to="/user" />}
       {!loader && (
         <div>
           <TableMap adminId={localStorage.getItem('adminId')} />
@@ -112,6 +128,7 @@ function Home() {
           </div>
         </div>
       )}
+      {tokenExipired && <Navigate to="/login" />}
     </>
   );
 }

@@ -3,7 +3,7 @@ import Modal from './modal';
 import ModalAddMenu from './modalMenuItem';
 import "../css/button.css"
 
-const AddItemInMenu = ({userId}) => {
+const AddItemInMenu = ({userId,onAddProduct}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -18,7 +18,7 @@ const AddItemInMenu = ({userId}) => {
     <div>
       <button onClick={openModal} className="addProducts addProductsMenu" >Add product</button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <ModalAddMenu onClose={closeModal} userId={userId}/>
+        <ModalAddMenu onClose={closeModal} userId={userId} onAddProduct={onAddProduct}/>
       </Modal>
     </div>
   );

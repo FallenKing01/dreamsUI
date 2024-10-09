@@ -3,7 +3,6 @@ import axios from 'axios';
 import '../css/ModalCreateEmployer.css';
 import ErrorAlert from '../components/error.jsx';
 
-
 const ModalCreateEmployer = ({ onClose }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -126,7 +125,6 @@ const ModalCreateEmployer = ({ onClose }) => {
       userId: String(userId),
     };
 
-    console.log(visible);
     if(visible==100)
       {
         axios.post('https://dreamsdeluxeapi.azurewebsites.net/employer/create', employerData, {
@@ -135,7 +133,6 @@ const ModalCreateEmployer = ({ onClose }) => {
           },
         })
         .then((response) => {
-          console.log('Success:', response.data);
           onClose();
         })
         .catch((error) => {
@@ -146,17 +143,22 @@ const ModalCreateEmployer = ({ onClose }) => {
   };
 
   return (
-    <div>
-   {visible==1 && (<ErrorAlert title='Error' message='Name must be at least 3 characters long.' onClose={() => setError(null)} />)}
-   {visible==2  && (<ErrorAlert title='Error' message='Please enter a valid email address.' onClose={() => setError(null)} />)}
-   {visible==3  && (<ErrorAlert title='Error' message='Email is already used' onClose={() => setError(null)} />)}
-   {visible==4 && (<ErrorAlert title='Error' message='Passwords must be grater than 8 letters' onClose={() => setError(null)} />)}
-   {visible==5 && (<ErrorAlert title='Error' message='Passwords do not match.' onClose={() => setError(null)} />)}
-   {visible==6 && (<ErrorAlert title='Error' message='Role cannot be empty, must be different from "admin", and must be at least 4 characters long.' onClose={() => setError(null)}/>)}
-   {visible==7 && (<ErrorAlert title='Error' message='Salary must be a valid number greater than 0.' onClose={() => setError(null)}/> )}
-   {visible==8 && (<ErrorAlert title='Error' message='Birthdate cannot be empty.' onClose={() => setError(null)} />)}
-   {visible==9 && (<ErrorAlert title='Error' message='Description cannot be empty and must be at least 10 characters long.' onClose={() => setError(null)}/>)}
-   {visible==100 && (<ErrorAlert title='Error' message='NIMIC DE ZIS APASA SUBMIT' onClose={() => setError(null)}/>)}
+    <>
+      <div className='createEmplAlert'>
+      {visible==1 && (<ErrorAlert title='Error' message='Name must be at least 3 characters long.' onClose={() => setError(null)} />)}
+      {visible==2  && (<ErrorAlert title='Error' message='Please enter a valid email address.' onClose={() => setError(null)} />)}
+      {visible==3  && (<ErrorAlert title='Error' message='Email is already used' onClose={() => setError(null)} />)}
+      {visible==4 && (<ErrorAlert title='Error' message='Passwords must be grater than 8 letters' onClose={() => setError(null)} />)}
+      {visible==5 && (<ErrorAlert title='Error' message='Passwords do not match.' onClose={() => setError(null)} />)}
+      {visible==6 && (<ErrorAlert title='Error' message='Role cannot be empty, must be different from "admin", and must be at least 4 characters long.' onClose={() => setError(null)}/>)}
+      {visible==7 && (<ErrorAlert title='Error' message='Salary must be a valid number greater than 0.' onClose={() => setError(null)}/> )}
+      {visible==8 && (<ErrorAlert title='Error' message='Birthdate cannot be empty.' onClose={() => setError(null)} />)}
+      {visible==9 && (<ErrorAlert title='Error' message='Description cannot be empty and must be at least 10 characters long.' onClose={() => setError(null)}/>)}
+      {visible==100 && (<ErrorAlert title='Error' message='NIMIC DE ZIS APASA SUBMIT' onClose={() => setError(null)}/>)}
+      </div>
+      
+      <div >
+   
 
       <form onSubmit={handleSubmit}>
         <h2 className='titleModal'>Create a new employer</h2>
@@ -167,7 +169,7 @@ const ModalCreateEmployer = ({ onClose }) => {
         <br />
         <br />
         <input
-          id='employerName'
+          id='employerNameModal'
           type='text'
           placeholder='Popescu Ion'
           className='modalInput'
@@ -305,6 +307,8 @@ const ModalCreateEmployer = ({ onClose }) => {
 
       {error && <ErrorAlert title='Error' message={error} onClose={() => setError(null)} />}
     </div>
+    </>
+    
   );
 };
 export default ModalCreateEmployer;

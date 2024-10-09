@@ -25,7 +25,7 @@ const PhotoIcon = ({email}) => {
       <FontAwesomeIcon icon={faCamera} className="photoIcon" size="2x" onClick={openModal}/>
       <PhotoBackModal isOpen={isModalOpen} onClose={closeModal}>
        
-        <UploadPhotoModal email = {email}/>
+        <UploadPhotoModal email = {email} onClose = {closeModal}/>
         
       </PhotoBackModal>
 

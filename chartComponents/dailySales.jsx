@@ -13,6 +13,7 @@ const DailySales = ({ adminId, onLoadComplete }) => {
   const [errorMessage, setErrorMessage] = useState(''); // State for error messages
   const [isLoading, setIsLoading] = useState(true); // State to manage loading spinner
   const [chartTitle, setChartTitle] = useState('Daily Sales for Current Month');
+  adminId=localStorage.getItem('userId');
 
   useEffect(() => {
     const fetchData = async () => {

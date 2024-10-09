@@ -1,6 +1,7 @@
 .employer-details {
+  position: absolute;
     width: 300px;
-    margin: 0 auto;
+    margin: 25% 0 0 5%;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;

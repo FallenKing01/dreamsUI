@@ -1,8 +1,8 @@
 .error-alert {
-  position: fixed;
-  top: 75%;
-  margin-left: -25%;
-  width: 350px;
+  position: absolute;
+  top: 65%;
+  left: 10%;
+ width: 350px;
   background-color: #ff4d4f;
   color: #fff;
   padding: 16px;
@@ -14,12 +14,10 @@
 
 @keyframes slideIn {
   0% {
-    left: 3200px; /* Start off-screen to the right */
     opacity: 0; /* Initially transparent */
 
   }
   100% {
-    left: 1500px; /* End position to bring it into view from the right */
     opacity: 1; /* Make it fully visible */
 
   }
@@ -27,11 +25,9 @@
 
 @keyframes slideBack {
   0% {
-    left: 1400px; /* Start position to slide back */
     opacity: 1; /* Make it fully visible */
   }
   100% {
-    left: 3200px; /* End position off-screen to the right */
     opacity: 0; /* Fade out */
   }
 }
@@ -69,9 +65,7 @@
   }
   
   /* Add this class to make it visible */
-  .visible {
-    left: 0;
-  }
+  
   
   /* Media query for smaller screens (adjust as needed) */
   @media (max-width: 768px) {

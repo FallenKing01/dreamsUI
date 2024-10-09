@@ -18,7 +18,7 @@ margin-top: 5px;
   margin-left: 100px;
 }
 .modalClose{
-  margin-left: -50px;
+  display: none;
 }
 .modal-content {
   background-color: #fff;
@@ -33,10 +33,10 @@ margin-top: 5px;
   border-radius:20px;
 }
 #tableCapacity{
-  width: 450px;
+  width: 60%;
 }
 #tableName{
-  width: 450px; 
+ width: 60%;
 }
 
 

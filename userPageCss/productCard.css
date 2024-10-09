@@ -1,0 +1,48 @@
+/* ProductCard.css */
+
+/* Smaller Container Styling */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Changed to column for vertical stacking */
+    align-items: center; /* Center align items horizontally */
+    justify-content: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px; /* Reduced padding */
+    max-width: 320px !important; /* Smaller width */
+    margin: 10px auto; /* Reduced margin */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.product-image {
+    width: 140px; /* Smaller width */
+    height: 100px; /* Smaller height */
+    margin-bottom: 10px; /* Margin adjusted for spacing below the image */
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f0f0;
+}
+
+.product-info {
+    text-align: center; /* Center align text for better aesthetics */
+}
+
+.product-name {
+    font-size: 0.9em; /* Smaller font size */
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-description {
+    font-size: 0.75em; /* Smaller font size */
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1em; /* Smaller font size */
+    color: #28a745;
+    font-weight: bold;
+}

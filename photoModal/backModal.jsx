@@ -4,7 +4,7 @@ const PhotoBackModal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal">
+    <div className="modalBackground">
       <div className="modal-contentPhoto">
         {children}
         <button onClick={onClose} className="close-btn modalClose">Close Modal</button>

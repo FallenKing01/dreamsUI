@@ -1,0 +1,59 @@
+/* ReviewsComponent.css */
+.noReviewsTxt{
+    color: black;
+    align-items: center;
+    text-align: center;
+}
+
+.reviews-container {
+    max-width: 800px; /* Maximum width for the container */
+    margin: 20px auto; /* Center the container with auto margins */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+  }
+  
+  .reviews-list {
+    display: flex; /* Use flexbox for the list */
+    flex-direction: column; /* Arrange items in a column */
+  }
+  
+  .review-item {
+    display: flex; /* Use flexbox for each review item */
+    flex-direction: column; /* Stack the elements vertically */
+    padding: 15px; /* Add some padding for each review */
+    border-bottom: 1px solid #eee; /* Separator between reviews */
+  }
+  
+  .review-item:last-child {
+    border-bottom: none; /* Remove border from the last item */
+  }
+  
+  .review-rating {
+    font-weight: bold; /* Make the rating bold */
+    color: #ffcc00; /* Gold color for the rating */
+  }
+  .reviewsTitle{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 600px) {
+    .reviews-list {
+      flex-direction: row; /* Change to row direction for wider screens */
+      flex-wrap: wrap; /* Allow wrapping of items */
+    }
+  
+    .review-item {
+      flex: 1; /* Allow each review item to grow */
+      margin: 10px; /* Space between items */
+      min-width: 280px; /* Minimum width for each review item */
+      background-color: #f9f9f9; /* Light background for review items */
+      border-radius: 5px; /* Slightly rounded corners for review items */
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+  }
+  

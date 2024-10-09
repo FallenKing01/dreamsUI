@@ -11,16 +11,16 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const ProductChart = ({ adminId, onLoadComplete }) => {
   const [chartData, setChartData] = useState(null);
   const [dailySalesTitle, setDailySalesTitle] = useState('Top 5 Products Sold Today');
-
+  adminId=localStorage.getItem('userId');
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/charts/currentdaychart/${adminId}`);
         const data = response.data;
-
         if (!Array.isArray(data) || data.length === 0) {
           throw new Error('No data available');
         }
+
 
         // Limit to first 5 items
         const limitedData = data.slice(0, 5);

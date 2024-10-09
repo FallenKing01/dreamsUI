@@ -1,0 +1,25 @@
+/* ProductList.css */
+
+/* Centering the Menu Title and Products */
+.menu-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align items horizontally */
+  justify-content: center; /* Center align items vertically */
+  padding: 20px; /* Optional: add some padding for spacing */
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center align products in the container */
+  gap: 10px; /* Optional: add spacing between product cards */
+}
+
+.menu-title {
+  font-size: 2em; /* Adjust the font size for the title */
+  margin-bottom: 20px; /* Space below the title */
+  color: #333; /* Optional: color for the title */
+  text-align: center; /* Center align the text */
+  width: 100%; /* Ensure it takes the full width of the container */
+}

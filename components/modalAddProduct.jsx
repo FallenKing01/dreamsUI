@@ -79,7 +79,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
     <form className='modalForm' onSubmit={handleSubmit}>
       <h2 className='titleModal'>Create a new product</h2>
       
-      <label htmlFor="productFilter" className='modalLbl'>Filter Products:</label>
+      <label htmlFor="productFilter" className='modalLbl filterProductLbl'>Filter Products:</label>
       <input 
         id="productFilter"
         type="text" 
@@ -92,7 +92,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
       <br />
       <br />
 
-      <label htmlFor="productSelect" className='modalLbl'>Choose a product:</label>
+      <label htmlFor="productSelect" className='modalLbl choseProdLbl'>Choose a product:</label>
       <br />
       <br />
       <select
@@ -112,7 +112,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
       <br />
       <br />
 
-      <label htmlFor="productQty" className='modalLbl'>Quantity:</label>
+      <label htmlFor="productQty" className='modalLbl productQtyLbl'>Quantity:</label>
       <input 
         id="productQty"
         type="number" 
@@ -133,7 +133,9 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
       >
         
         Submit
-      </button>
+      </button>        
+      <button className="modalAddProductCloseBtn" onClick={onClose}>Close</button>
+
     </form>
   );
 };

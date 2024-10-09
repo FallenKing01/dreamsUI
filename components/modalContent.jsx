@@ -15,7 +15,6 @@ const ModalContent = ({ onClose }) => {
       const token = localStorage.getItem('token');
       const decodedToken = jwtDecode(token);      
       const idUser = decodedToken.id.toString(); // Convert ID to string
-      console.log("idUser:", idUser);
       await axios.post(`https://dreamsdeluxeapi.azurewebsites.net/tables/create/${idUser}`, { 
         name: name,
         capacity: capacity,
@@ -63,7 +62,9 @@ const ModalContent = ({ onClose }) => {
       />
       <br />
       <br />
-      <button type="submit" className='submit-btn modalSubmit'>Submit</button>
+      <button className="closeCreateTable" onClick={onClose}>Close</button>
+
+      <button type="submit" className='submitCreateTable'>Submit</button>
     </form>
   );
 };

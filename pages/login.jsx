@@ -46,7 +46,6 @@ export default function LoginPage() {
       const token = response.data["Authentication successful"];
 
       localStorage.setItem("token", token);
-      console.log("Login successful!");
 
       // Redirect to / after successful login
       navigate("/");

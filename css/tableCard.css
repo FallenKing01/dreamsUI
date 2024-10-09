@@ -1,7 +1,7 @@
 .cardBack {
     width: 250px;
     height: 150px; /* Increased height to fit four tables in a column */
-    margin-left: 270px; /* Adjusted margin for better spacing */
+    margin-left: 240px; /* Adjusted margin for better spacing */
     float: left; /* Float left to create a column layout */
     margin-bottom: 20px; /* Added margin-bottom for spacing between columns */
     background-image: url('../images/restaurant.jpg'); /* Replace with the path to your image */

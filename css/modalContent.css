@@ -8,12 +8,22 @@
     margin-left: -340px;
     font-weight: bold;
   }
-
+  .closeCreateTable{
+    margin-top: 56%;
+    margin-left: -65%;
+    background-color: red;
+    margin-right: 50px;
+  }
   
+  .modalAddProductCloseBtn{
+    margin-top: 44%;
+    margin-left: -60%;
+    background-color: red;
+  }
 
   /* Style for inputs within the modal */
   .modalInput {
-    width: 80%;
+    width: 55%;
     position: absolute;
     left: 100px;
     padding: 10px;
@@ -37,6 +47,7 @@
 
 .titleModal{
   margin-bottom: 80px;
+  margin-top: -50px;
   text-transform:uppercase;
   color: black;
   text-align: center;
@@ -45,4 +56,88 @@
 }
 .modalLblTip{
   margin-left: -308px;
+}
+.modalLblName{
+  margin-top: -50px;
+}
+
+#productDescriptionTxtArea{
+  width: 125%;
+  height: 100px;
+  margin-left: -19%;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333; /* Text color */
+  background-color: #f9f9f9;
+  resize: none;
+  transition: border 0.3s;  
+  margin-bottom: 20px;
+}
+.submitCreateTable{
+  position: absolute;
+  margin-top: 28%;
+  margin-left: 0%;
+  background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
+}
+.closeCreateMenuProduct{
+  position: absolute;
+  background-color: red;
+  margin-top: -10px;
+  margin-left: -36%;
+}
+.submitCreateMenuProduct{
+  position: absolute;
+  margin-top: -10px;
+  margin-left: 30px;
+  background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
+}
+
+#productFilter{
+  margin-top: 30px;
+  width: 65%;
+}
+#productSelect{
+  margin-top: 0px;
+  width: 68%;
+}
+#productQty{
+  margin-top:30px !important;
+  width:65% !important;
+}
+
+.choseProdLbl{
+  margin-top: 45px;
+  margin-left: -50%;
+}
+.filterProductLbl{
+  margin-left: -54%;
+}
+
+.productQtyLbl{
+  margin-left: -60%;
+  margin-top:15px;
+}
+
+#productTypeMenu{
+  margin-left: -7%;
+  width:75%;
+}
+#productPrice{
+  margin-left: -7%;
+  width:71%;
+
+}
+
+#productName{
+  margin-left: -7%;
+  width:71%;
+}
+.modalLblPrice{
+  margin-left: -100%;
+  margin-top: 15px;
+}
+.modalLblName{
+  margin-left: -100%;
 }

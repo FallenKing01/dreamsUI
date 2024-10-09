@@ -1,0 +1,36 @@
+.rating-filter {
+    display: flex;              /* Use flexbox for alignment */
+    flex-direction: column;     /* Stack label and select vertically */
+    align-items: center;        /* Center items horizontally */
+    justify-content: center;    /* Center items vertically */
+    background-color: white;    /* White background */
+    border: 1px solid #ddd;     /* Light border */
+    border-radius: 5px;         /* Rounded corners */
+    padding: 20px;              /* Padding inside the box */
+    width: 80%;                 /* Set width to 80% */
+    margin: 20px auto;          /* Center the box horizontally and add top/bottom margin */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .rating-filter label {
+    margin-bottom: 10px;       /* Space between label and select */
+    font-weight: bold;         /* Make the label bold */
+    font-size: 1.1em;          /* Slightly larger font size */
+  }
+  
+  .rating-filter select {
+    padding: 10px;             /* Padding for the select dropdown */
+    font-size: 1em;            /* Font size for the select text */
+    border-radius: 4px;        /* Rounded corners for the select */
+    border: 1px solid #ccc;    /* Light border for the select */
+    outline: none;             /* Remove default outline */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+    width: 80%;
+  }
+  
+  .rating-filter select:focus {
+    border-color: #007bff;    /* Change border color on focus */
+  }
+  .ratingFilterTitle{
+    color: black;
+  }

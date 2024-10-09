@@ -1,0 +1,54 @@
+/* Flexbox container to align and center items */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto; /* Center the container on the page */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Styling for the label */
+.label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Styling for the select dropdown */
+.select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+/* Add some hover effect for better user experience */
+.select:hover {
+    border-color: #888;
+}
+
+/* Make sure the container adapts to smaller screens */
+@media (max-width: 600px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .label {
+        font-size: 1rem;
+    }
+
+    .select {
+        font-size: 0.9rem;
+    }
+}

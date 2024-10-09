@@ -9,6 +9,7 @@
     cursor: pointer; 
     background: linear-gradient(to bottom, #00ff4c, #00fd00c5); 
     position: absolute;
-    left: 320px;
-    top: 70px;
+    left: 18%;
+    top: -10%;
+    
 }

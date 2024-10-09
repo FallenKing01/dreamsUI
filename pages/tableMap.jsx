@@ -53,7 +53,6 @@ const TablePlacementSystem = () => {
     const previousType = cells[index];
     if (previousType?.type === 'table') {
       setError("You can't change a table position after placement");
-      console.log('Table already exists');
       return; // Do nothing if the cell already contains a table
     }
     const newCells = [...cells];
@@ -81,7 +80,6 @@ const TablePlacementSystem = () => {
   };
 
   const resetMap = () => {
-console.log(localStorage.getItem('userId'));
     setCells(Array(rows * cols).fill(null));
     setHistory([]);
     setTableCount(0);

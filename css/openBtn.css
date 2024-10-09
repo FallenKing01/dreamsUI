@@ -19,6 +19,17 @@
     background: linear-gradient(to bottom, #ff0000, #ff0000);
     border-radius: 25px;
 }
+.openRestaurant{
+
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-left: 0px;
+    background: linear-gradient(to bottom, #008000, #008000);
+    border-radius: 25px;
+ }
 .emplEdit{
     position: absolute;
     width: 80px;
@@ -52,4 +63,14 @@
     background: linear-gradient(to bottom, #ff0000, #ff0000);
     border-radius: 25px;
 
+}
+.openReviews{
+    width: 70px;
+    height: 35px;
+    background-color: green;
+    font-size: 14px;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+    margin-left: -135px;
 }

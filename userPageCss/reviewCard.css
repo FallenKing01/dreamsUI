@@ -1,0 +1,27 @@
+/* ReviewCard.css */
+
+.review-card {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    padding: 15px; /* Padding inside the card */
+    margin: 10px; /* Space around the card */
+    background-color: #f9f9f9; /* Light background for the card */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+  }
+  
+  .review-card:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+  }
+  
+  .review-rating {
+    font-weight: bold; /* Make the rating bold */
+    color: #ffcc00; /* Gold color for the rating */
+  }
+  
+  .review-recension {
+    margin-top: 5px; /* Margin above the recension text */
+    color: #333; /* Dark text color for readability */
+  }
+  

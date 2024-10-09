@@ -176,7 +176,6 @@ export default function Bill() {
 
         items.forEach(item => {
           const printData = formatItem(item.name, item.qty, item.price);
-          console.log('Printing:', printData);
           writer.write(`${printData}\n`);
         });
 

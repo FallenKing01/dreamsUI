@@ -12,6 +12,7 @@ const MonthlySalesLineChart = ({ adminId, onLoadComplete }) => {
   const [chartData, setChartData] = useState(null);
   const [chartTitle, setChartTitle] = useState('Monthly Sales');
   const [isLoading, setIsLoading] = useState(true); // State to manage loading
+  adminId=localStorage.getItem('userId');
 
   useEffect(() => {
     const fetchData = async () => {
