@@ -34,12 +34,12 @@ const ProductList = () => {
   }, [restaurantId]);
 
   // Function to handle filtering based on the selected food type
-  const handleFilterByType = (typeId) => {
-    setSelectedType(typeId);
+  const handleFilterByType = (typeName) => {
+    setSelectedType(typeName);
 
-    // Filter products by food type
-    if (typeId) {
-      const filtered = products.filter(product => product.foodType === typeId);
+    // Filter products by the type property
+    if (typeName) {
+      const filtered = products.filter(product => product.type === typeName);
       setFilteredProducts(filtered);
     } else {
       // If no type selected, show all products
@@ -58,16 +58,20 @@ const ProductList = () => {
       <div className="menu-container">
         <div className="product-container">
           {/* Render filtered products */}
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product._id}
-              productId={product._id}
-              imageUrl={product.imageUrl}
-              description={product.description}
-              price={product.price}
-              name={product.name}
-            />
-          ))}
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard
+                key={product._id}
+                productId={product._id}
+                imageUrl={product.imageUrl}
+                description={product.description} // Assuming this field exists; if not, remove it
+                price={product.price}
+                name={product.name}
+              />
+            ))
+          ) : (
+            <p>No products found for this type.</p> // Message when no products found
+          )}
         </div>
       </div>
       <UserNavBar />

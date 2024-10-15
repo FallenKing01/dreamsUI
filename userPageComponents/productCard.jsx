@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../userPageCss/ProductCard.css';
 import ProductDescriptionModal from '../modals/productDescription';
+
 const ProductCard = ({ productId, imageUrl, description, price, name }) => {
     const [isModalOpen, setModalOpen] = useState(false); // State for modal visibility
 
@@ -46,3 +47,4 @@ ProductCard.propTypes = {
 };
 
 export default ProductCard;
+    

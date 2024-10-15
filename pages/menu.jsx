@@ -3,6 +3,7 @@ import axios from 'axios';
 import AddItemInMenu from '../components/addItemMenu';
 import '../css/menu.css'; // Import your CSS file for styling
 import SidebarAdmin from '../components/sidebarAdmin';
+import PhotoIconUpdateProduct from '../photoModal/photoBtnUpdateProduct';
 import Spinner from '../components/spinner'; // Spinner component to indicate loading
 
 const deleteProduct = async (prodId, setItemList) => {
@@ -79,6 +80,7 @@ export default function Menu() {
                   <th>Type</th>
                   <th>Price</th>
                   <th>Operation</th>
+                  <th>Update Picture</th> {/* New column for Update Picture */}
                 </tr>
               </thead>
               <tbody>
@@ -90,6 +92,9 @@ export default function Menu() {
                     <td>{item.price}</td>
                     <td>
                       <button className="delMenuProd" onClick={() => deleteProduct(item.id, setItemList)}>Delete</button>
+                    </td>
+                    <td>
+                      <PhotoIconUpdateProduct productId={item.id} /> {/* Icon to update picture */}
                     </td>
                   </tr>
                 ))}
@@ -104,3 +109,4 @@ export default function Menu() {
     </>
   );
 }
+  

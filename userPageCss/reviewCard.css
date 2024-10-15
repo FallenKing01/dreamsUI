@@ -24,4 +24,7 @@
     margin-top: 5px; /* Margin above the recension text */
     color: #333; /* Dark text color for readability */
   }
-  
+  .starIcon{
+    color: #ffcc00; /* Gold color for the rating */
+
+  }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../css/ModalContent.css";
 
-const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
+const ModalEditMenu = ({ onClose, userId, onAddProduct }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
@@ -14,7 +14,7 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
   useEffect(() => {
     const fetchFoodTypes = async () => {
       try {
-        const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/foodtype/getfoodtypes`);
+        const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/foodtype/getfoodtypes/${userId}`);
         setFoodTypes(response.data); // Assuming API returns an array of food types
       } catch (error) {
         console.error("Error fetching food types:", error);
@@ -150,4 +150,4 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
   );
 };
 
-export default ModalAddMenu;
+export default ModalEditMenu;

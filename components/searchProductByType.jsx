@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/searchProductByType.css'; // Include the external CSS file
 
-
-
 const SearchProductByType = ({ adminId, onFilter }) => {
     const [foodTypes, setFoodTypes] = useState([]);
     const [selectedType, setSelectedType] = useState('');
@@ -11,7 +9,7 @@ const SearchProductByType = ({ adminId, onFilter }) => {
     useEffect(() => {
         const fetchFoodTypes = async () => {
             try {
-                const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/foodtype/getfoodtypes/${adminId}`);
+                const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/foodtype/getfoodtypes`);
                 setFoodTypes(response.data);
             } catch (error) {
                 console.error('Error fetching food types:', error);
@@ -23,19 +21,27 @@ const SearchProductByType = ({ adminId, onFilter }) => {
 
     // Handle food type selection
     const handleChange = (event) => {
-        const typeId = event.target.value;
-        setSelectedType(typeId);
-        onFilter(typeId); // Pass the selected type to the parent
+        const selectedTypeId = event.target.value; // Get the selected type ID
+        setSelectedType(selectedTypeId); // Update the selected type state
+
+        // Find the selected food type object
+        const selectedFoodType = foodTypes.find(foodType => foodType._id === selectedTypeId);
+        
+        // Get the type name from the selected food type object
+        const typeName = selectedFoodType ? selectedFoodType.typeName : '';
+        
+        console.log(typeName); // Log the selected type name
+        onFilter(typeName); // Pass the selected type name to the parent
     };
 
     return (
         <div className="container">
             <label htmlFor="foodType" className="label">Select Food Type:</label>
             <select id="foodType" value={selectedType} onChange={handleChange} className="select">
-                <option value="">--Select--</option>
+                <option value="">No type selected</option>
                 {foodTypes.map((foodType) => (
                     <option key={foodType._id} value={foodType._id}>
-                        {foodType.typeName}
+                        {foodType.typeName} {/* Display the food type name */}
                     </option>
                 ))}
             </select>

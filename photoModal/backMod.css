@@ -84,3 +84,22 @@
   font-size: 16px;
   background-color:darkblue;
 }
+/* FROM HERE START STYLE OF THE PRODUCT CHOSE PHOTO MODAL !!!!! */
+.customUploadButton-Product{
+  margin-top: 0px;
+  font-size: 16px;
+  background-color:darkblue;
+}
+.modalBackgroundUpdatePhotoProduct {
+  position: fixed; /* Fixed to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover full width */
+  height: 100vh; /* Cover full height */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+  z-index: 1000; /* Ensure it's above other elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}

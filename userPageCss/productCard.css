@@ -1,48 +1,61 @@
 /* ProductCard.css */
 
-/* Smaller Container Styling */
+/* Container styling for ProductCard */
 .product-card {
     display: flex;
-    flex-direction: column; /* Changed to column for vertical stacking */
-    align-items: center; /* Center align items horizontally */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
     justify-content: flex-start;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px; /* Reduced padding */
-    max-width: 320px !important; /* Smaller width */
-    margin: 10px auto; /* Reduced margin */
+    padding: 10px; /* Space around the card */
+    width: 320px; /* Fixed width for mobile */
+    margin: 10px auto; /* Center card horizontally */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    transition: height 0.2s ease; /* Smooth height transition */
 }
 
+/* Image container */
 .product-image {
-    width: 140px; /* Smaller width */
-    height: 100px; /* Smaller height */
-    margin-bottom: 10px; /* Margin adjusted for spacing below the image */
+    width: 100%; /* Take full width of the card */
+    height: 150px; /* Fixed height for images */
+    margin-bottom: 10px; /* Space below the image */
     border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    background-color: #f0f0f0;
+    overflow: hidden; /* Ensure no overflow outside the container */
+    background-color: #f0f0f0; /* Fallback color */
 }
 
+/* Ensure the image covers the area and maintains its aspect ratio */
+.product-image img {
+    width: 100%; /* Make image take full width */
+    height: 100%; /* Make image take full height */
+    object-fit: cover; /* Cover the entire container without distorting */
+    object-position: center; /* Center the image */
+}
+
+/* Info section styling */
 .product-info {
-    text-align: center; /* Center align text for better aesthetics */
+    text-align: center; /* Centers text */
 }
 
+/* Name styling */
 .product-name {
-    font-size: 0.9em; /* Smaller font size */
-    margin-bottom: 5px;
+    font-size: 1em; /* Default font size */
+    margin-bottom: 5px; /* Space below the name */
     color: #333;
 }
 
+/* Description styling */
 .product-description {
-    font-size: 0.75em; /* Smaller font size */
+    font-size: 0.8em; /* Slightly larger font size */
     color: #777;
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Space below description */
 }
 
+/* Price styling */
 .product-price {
-    font-size: 1em; /* Smaller font size */
-    color: #28a745;
-    font-weight: bold;
+    font-size: 1em; /* Font size for price */
+    color: #28a745; /* Green color for price */
+    font-weight: bold; /* Bold font */
 }

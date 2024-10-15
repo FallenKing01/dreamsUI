@@ -11,7 +11,7 @@ const ProductDescriptionModal = ({ isOpen, onClose, description }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
       <span className="close-modal" onClick={onClose} aria-label="Close modal">
                     <FontAwesomeIcon icon={faTimes} />
-                </span>
+        </span>
         <h2>Product Description</h2>
         <p>{description}</p>
       </div>
