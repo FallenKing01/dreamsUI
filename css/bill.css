@@ -1,82 +1,221 @@
-
+/* Bill Container */
 .billContainer {
-    width: 60%;
-    margin-left: 0;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 10px;
-    position: absolute;
-    left: 100px;
-    color: black;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  color: black;
+}
+
+.billContent {
+  margin-top: 20px;
+}
+
+.billContent h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.billTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.billTable th,
+.billTable td {
+  padding: 15px;
+  text-align: center;
+}
+
+.billTable th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.billTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.billContent h2 {
+  text-align: right;
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.billTable td:nth-child(3),
+.billTable th:nth-child(3) {
+  width: 10%;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-left: 20px;
+  width: 100px;
+  height: 40px;
+}
+
+.billPrice {
+  margin-top: 20px;
+}
+
+.resetBtn {
+  background: linear-gradient(to bottom, #ff7f00, #ff5500);
+  width: 180px;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.addProductBtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  .billContainer {
+    width: 90%;
+    padding: 10px;
   }
-  .billContent {
-    margin-top: 20px;
-  }
-  
+
   .billContent h1 {
-    text-align: center;
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 1.3em;
   }
-  
-  .billTable {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
+
+  .billTable th,
+  .billTable td {
+    padding: 6px;
+    font-size: 0.8em;
   }
-  
-  .billTable th, .billTable td {
-    padding: 15px;
-    text-align: center;
-  }
-  
-  .billTable th {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .billTable tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .billContent h2 {
-    text-align: right;
-    color: #333;
-    font-size: 1.5em;
-    margin-top: 20px;
-  }
-  
-  .billTable td:nth-child(3), .billTable th:nth-child(3) {
-    width: 10%;
-  }
-  
+
   .deleteButton {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 0.9em;
-    cursor: pointer;
-    margin-left: 20px;
-    width: 120px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
+    font-size: 0.8em;
   }
- 
+
+  .addProductBtn {
+    padding: 8px 16px;
+    font-size: 1em;
+  }
   
-  .billTable td:nth-child(5), .billTable th:nth-child(5) {
-width: 300px;  
+  #productFilter{
+    width: 84%;
+  }
+  #productSelect{
+    width: 90% !important;
+  }
+  #productQty{
+    width: 84% !important;
+  }
+  .resetBtn{
+    display: none;
+  }
 }
-.billPrice{
-   
+
+/* Small Tablets (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .billContainer {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .billContent h1 {
+    font-size: 1.5em;
+  }
+
+  .billTable th,
+  .billTable td {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .resetBtn {
+    display: none;
+  }
 }
-.resetBtn{
-    position: absolute;
-    background: linear-gradient(to bottom, #ff7f00, #ff5500);
-    left: 117.5%;
-    width: 180px;
-    height: 40px;
-    top: 25%;
+
+/* Tablets (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .billContainer {
+    width: 85%; /* Reduce width slightly for tablet */
+    padding: 15px; /* Increase padding slightly */
+  }
+
+  .billContent h1 {
+    font-size: 1.8em; /* Increase font size for better readability */
+  }
+
+  .billTable th,
+  .billTable td {
+    padding: 12px; /* Slightly more padding for tables */
+    font-size: 1em; /* Slightly larger font size for better readability */
+  }
+
+  .resetBtn {
+    display: none;
+  }
+}
+
+/* Laptops (1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .billContainer {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .billContent h1 {
+    font-size: 2em;
+  }
+
+  .billTable th,
+  .billTable td {
+    padding: 15px;
+    font-size: 1em;
+  }
+}
+
+/* Large Screens (1441px and above) */
+@media (min-width: 1441px) {
+  .billContainer {
+    width: 70%;
+    padding: 30px;
+  }
+
+  .billContent h1 {
+    font-size: 2.5em;
+  }
+
+  .billTable th,
+  .billTable td {
+    padding: 20px;
+    font-size: 1.2em;
+  }
+
+  .addProductBtn {
+    font-size: 1.5em;
+    padding: 15px 30px;
+  }
 }

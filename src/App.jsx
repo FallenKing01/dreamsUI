@@ -13,6 +13,8 @@ import ChartPage from '../pages/chartPage';
 import UserMainPage from '../userPage/userMainPage';
 import ProductList from '../userPage/viewRestarantMenu';
 import ReviewsComponent from '../userPage/reviewsPage';
+import LunaRestaurantChatbot from '../pages/lunaRestaurant';
+import UserProfile from '../userPage/profilePage';
 function App() {
   return (
     <div className="App">
@@ -24,7 +26,7 @@ function App() {
 
           <Route path="/restaurantmenu/:restaurantId" element={<ProductList />} />
           <Route path="/reviews/:restaurantId" element={<ReviewsComponent />} />
-
+          <Route path="/luna" element={<LunaRestaurantChatbot />} />
 
 
           <Route path="/employer" element={<Employer />} />
@@ -33,6 +35,7 @@ function App() {
           <Route path="/tablemap" element={<TableMap />} />
           <Route path="/charts" element={<ChartPage />} />
           <Route path="/user" element={<UserMainPage />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
     </div>

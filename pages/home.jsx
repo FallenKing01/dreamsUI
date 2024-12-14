@@ -8,7 +8,7 @@ import CardTable from '../components/tableComponent';
 import { ColorRing } from 'react-loader-spinner';
 import TableMap from '../components/tableMapView';
 import { Navigate } from "react-router-dom";
-
+import '../css/home.css';
 function Home() {
   const [tokenExipired, setTokenExpired] = useState(false);
   const [tables, setTables] = useState([]);
@@ -97,7 +97,7 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    // Disable scrolling when loader is displayed
+
     if (loader) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -107,29 +107,73 @@ function Home() {
 
   return (
     <>
-      {loader && (
-        <div style={{ backgroundColor: 'black', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <ColorRing />
-            <div style={{ color: 'white', fontSize: '20px', marginTop: '10px', marginLeft: '5px' }}>Loading...</div>
-          </div>
+  {loader && (
+    <div
+      style={{
+        backgroundColor: 'black',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1,
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <ColorRing />
+        <div
+          style={{ color: 'white', fontSize: '20px', marginTop: '10px', marginLeft: '5px' }}
+        >
+          Loading...
         </div>
-      )} 
-    {userRole === 'client' && !loader && <Navigate to="/user" />}
-      {!loader && (
-        <div>
+      </div>
+    </div>
+  )}
+
+  {userRole === 'client' && !loader && <Navigate to="/user" />}
+
+  {!loader && (
+    <div>
+      {userRole === 'admin' ? (
+        // Admin Interface
+        <>
           <TableMap adminId={localStorage.getItem('adminId')} />
-          {userRole === 'admin' ? <SidebarAdmin /> : <SidebarUser />}
+          <SidebarAdmin />
           <CreateBtn />
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             {tables.map((table, index) => (
               <CardTable key={table.id} name={table.name} id={table.id} counter={index + 1} />
             ))}
           </div>
+        </>
+      ) : (
+        // Non-Admin Interface (placeholder for now)
+        <>
+        <SidebarUser />   
+        <TableMap adminId={localStorage.getItem('adminId')} />
+        
+        <div className="page-layout">
+          <div className="nonadmin-sidebar">
+            {/* Sidebar content goes here */}
+          </div>
+          
+          <div className="content-area">
+            <div className="card-table-container-nonadmin">
+              {tables.map((table, index) => (
+                <div key={table.id} className="card-table">
+                  <CardTable name={table.name} id={table.id} counter={index + 1} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+      </>
+      
       )}
-      {tokenExipired && <Navigate to="/login" />}
-    </>
+    </div>
+  )}
+
+  {tokenExipired && <Navigate to="/login" />}
+</>
   );
 }
 

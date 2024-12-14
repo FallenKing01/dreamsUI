@@ -8,10 +8,14 @@ import Spinner from '../components/spinner';  // Fixed typo in Spinner import
 // Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const ProductChart = ({ adminId, onLoadComplete }) => {
+const ProductChart = ({ adminId }) => {
   const [chartData, setChartData] = useState(null);
   const [dailySalesTitle, setDailySalesTitle] = useState('Top 5 Products Sold Today');
-  adminId=localStorage.getItem('userId');
+  adminId = localStorage.getItem('userId');
+
+  console.log(adminId);
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,8 +24,6 @@ const ProductChart = ({ adminId, onLoadComplete }) => {
         if (!Array.isArray(data) || data.length === 0) {
           throw new Error('No data available');
         }
-
-
         // Limit to first 5 items
         const limitedData = data.slice(0, 5);
 
@@ -69,13 +71,11 @@ const ProductChart = ({ adminId, onLoadComplete }) => {
           prices: [],
           types: []
         });
-      } finally {
-        onLoadComplete();
       }
     };
 
     fetchData();
-  }, [adminId, onLoadComplete]);
+  }, [adminId]);
 
   const options = {
     responsive: true,

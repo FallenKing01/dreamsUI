@@ -2,23 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import axios from 'axios';
-import '../css/chart.css';  // Adjust the path if necessary
-import Spinner from '../components/spinner';  // Spinner component to indicate loading
+import '../css/chart.css'; // Adjust the path if necessary
+import Spinner from '../components/spinner'; // Spinner component to indicate loading
 
 // Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const CurrentMonthChart = ({ adminId, onLoadComplete }) => {
+const CurrentMonthChart = ({ adminId }) => {
   const [chartData, setChartData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');  // State for error messages
-  const [isLoading, setIsLoading] = useState(true);  // State to manage loading spinner
+  const [errorMessage, setErrorMessage] = useState(''); // State for error messages
+  const [isLoading, setIsLoading] = useState(true); // State to manage loading spinner
   const [chartTitle, setChartTitle] = useState('Most Sold Products in Current Month');
-  adminId=localStorage.getItem('userId');
+
+  // Retrieve adminId from localStorage
+  adminId = localStorage.getItem('userId');
+  console.log(adminId);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/charts/currentmonthchart/${adminId}`);
+        const response = await axios.get(
+          `https://dreamsdeluxeapi.azurewebsites.net/charts/currentmonthchart1/${adminId}`
+        );
         const data = response.data;
 
         if (!Array.isArray(data) || data.length === 0) {
@@ -38,7 +43,6 @@ const CurrentMonthChart = ({ adminId, onLoadComplete }) => {
           'rgba(255, 206, 86, 1)', // Yellow
           'rgba(75, 192, 192, 1)', // Green
           'rgba(153, 102, 255, 1)', // Purple
-     
         ];
 
         // Limit colors to the number of items
@@ -52,15 +56,15 @@ const CurrentMonthChart = ({ adminId, onLoadComplete }) => {
               label: 'Quantity Sold',
               data: quantities,
               backgroundColor: barColors, // Apply different colors to each bar
-              borderColor: barColors.map(color => color.replace('0.2', '1')), // Make border colors solid
+              borderColor: barColors.map(color => color.replace('1)', '0.8)')), // Slightly transparent borders
               borderWidth: 1,
             },
           ],
-          prices: prices,  // Save prices
-          types: types,    // Save types
+          prices: prices, // Save prices
+          types: types, // Save types
         });
 
-        setErrorMessage('');  // Clear any error message
+        setErrorMessage(''); // Clear any error message
       } catch (error) {
         console.error('Error fetching data:', error);
         setErrorMessage('No data available.');
@@ -78,15 +82,12 @@ const CurrentMonthChart = ({ adminId, onLoadComplete }) => {
           ],
         });
       } finally {
-        setIsLoading(false);  // Stop loading spinner
-        if (onLoadComplete) {
-          onLoadComplete();  // Ensure onLoadComplete is called after loading
-        }
+        setIsLoading(false); // Stop loading spinner
       }
     };
 
     fetchData();
-  }, [adminId, onLoadComplete]);
+  }, [adminId]);
 
   const options = {
     responsive: true,
@@ -102,8 +103,8 @@ const CurrentMonthChart = ({ adminId, onLoadComplete }) => {
             if (chartData) {
               return [
                 `Quantity: ${chartData.datasets[0].data[index]}`,
-                `Price: ${chartData.prices[index]} RON`,  // Change to RON currency
-                `Type: ${chartData.types[index]}`
+                `Price: ${chartData.prices[index]} RON`, // Change to RON currency
+                `Type: ${chartData.types[index]}`,
               ];
             }
             return [];
@@ -114,48 +115,48 @@ const CurrentMonthChart = ({ adminId, onLoadComplete }) => {
     scales: {
       x: {
         grid: {
-          color: 'rgba(255, 255, 255, 0.3)',  // Light grid lines color
-          borderColor: 'white',  // Set the border color of the x-axis to white
+          color: 'rgba(255, 255, 255, 0.3)', // Light grid lines color
+          borderColor: 'white', // Set the border color of the x-axis to white
         },
         ticks: {
-          display: false,  // Hide the tick labels on the x-axis
+          display: false, // Hide the tick labels on the x-axis
         },
       },
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 1,  // Ensure the scale uses integers
+          stepSize: 1, // Ensure the scale uses integers
           callback: function (value) {
-            return Number.isInteger(value) ? value : null;  // Display only integers
+            return Number.isInteger(value) ? value : null; // Display only integers
           },
-          color: 'white',  // Set the tick labels color to white
+          color: 'white', // Set the tick labels color to white
           font: {
-            size: 12,  // Adjust the font size of the y-axis labels
+            size: 12, // Adjust the font size of the y-axis labels
           },
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.3)',  // Light grid lines color
-          borderColor: 'white',  // Set the border color of the y-axis to white
+          color: 'rgba(255, 255, 255, 0.3)', // Light grid lines color
+          borderColor: 'white', // Set the border color of the y-axis to white
         },
       },
     },
     animation: {
-      duration: 1500,  // Set the duration of animations in milliseconds (1500ms = 1.5 seconds)
-      easing: 'easeInOutQuad',  // Use a smoother easing function
+      duration: 1500, // Set the duration of animations in milliseconds (1500ms = 1.5 seconds)
+      easing: 'easeInOutQuad', // Use a smoother easing function
     },
   };
 
   return (
     <>
       {isLoading ? (
-        <Spinner />  // Display spinner while loading
+        <Spinner /> // Display spinner while loading
       ) : (
         <div className='chartContainer'>
           <h2>{chartTitle}</h2>
           {errorMessage ? (
-            <p>{errorMessage}</p>  // Display error message if there's any
+            <p>{errorMessage}</p> // Display error message if there's any
           ) : (
-            <Bar data={chartData} options={options} />  // Render chart if data is available
+            <Bar data={chartData} options={options} /> // Render chart if data is available
           )}
         </div>
       )}

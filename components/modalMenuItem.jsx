@@ -76,11 +76,11 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
     <form className='modalForm' onSubmit={handleSubmit}>
       <h2 className='titleModal'>Create a new product</h2>
 
-      <label htmlFor="productName" className='modalLbl modalLblName'>Product Name:</label>
+      <label htmlFor="productName" className='modalLbl modalCreateLblName'>Product Name:</label>
       <br />
       <br />
       <input 
-        id="productName"
+        id="productCreateName"
         type="text" 
         placeholder='e.g., Cheesecake' 
         className="modalInput"
@@ -95,7 +95,7 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
       <br />
       <br />
       <input 
-        id="productPrice"
+        id="productCreatePrice"
         type="number" 
         step="0.50"
         min={0.50}
@@ -112,7 +112,7 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
       <br />
       <br />
       <select 
-        id="productTypeMenu" 
+        id="productCreateTypeMenu" 
         className="modalInput" 
         value={type} 
         onChange={(e) => setType(e.target.value)} 

@@ -1,4 +1,14 @@
+.createProductsMenuBtn{
+    position: absolute;
+    left: 85%;
+    top: 5%;
+    width: 180px;
+}
+.editProductBtn{
 
+    background: linear-gradient(to bottom, #ffa500, #ffa500); /* Orange color */
+
+}
 button::before {
     
     position: absolute;
@@ -10,6 +20,7 @@ button::before {
     border-radius: 5px;
     box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.2);
     pointer-events: none;
+    
 }
 
 button:hover {
@@ -19,7 +30,7 @@ button:hover {
 
 .create-btn{
     position: relative;
-    left: 16%;
+    left: 13%;
     top: -120% !important;
     background-color: #00ff4c;
 }
@@ -37,11 +48,9 @@ button:hover {
 
 .addProducts{
     background: linear-gradient(to bottom, #00ff4c, #00fd00c5); /* Purple gradient background */
-    position: absolute;
-    left: 117.5%;
-    width: 180px;
-    height: 40px;
-    top: 0%;
+    align-items: center;
+    justify-content: center;
+   
 }
 .addProductsMenu{
     left: 85%;

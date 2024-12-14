@@ -25,6 +25,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
 
     fetchProducts();
   }, []);
+  
 
   const handleFilterChange = (e) => setFilter(e.target.value);
 
@@ -77,7 +78,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded ,menuProducts}) => {
   return (
     
     <form className='modalForm' onSubmit={handleSubmit}>
-      <h2 className='titleModal'>Create a new product</h2>
+      <h2 className='titleModal'>Add product</h2>
       
       <label htmlFor="productFilter" className='modalLbl filterProductLbl'>Filter Products:</label>
       <input 

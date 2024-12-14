@@ -1,22 +1,33 @@
-/* src/css/tableMapView.css */
+/* Base styles */
 .modalContent {
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative; /* Allow proper positioning of child elements */
+  overflow: hidden; /* Prevent overflow */
 }
-
+.nonadmin-open-btn{
+  margin-left: 12%;
+}
+.showTableMap{
+  margin-top: -2.7% !important;
+}
 
 .gridContainer {
   display: grid;
-  gap: 5px;
+  gap: 0px; /* Set gap to 0px for no space between grid cells */
+  max-width: 100%; /* Ensure grid fits within the screen */
+  margin: 0 auto; /* Center grid */
+  max-height: 80vh; /* Limit grid height */
+  overflow: auto; /* Allow scroll if grid overflows */
 }
 
 .gridContainer.scaled {
-  transform: scale(0.6); /* Adjust the scale as needed */
+  transform: scale(0.6); /* Adjust the scale if needed */
   transform-origin: top left;
-  margin-left: auto;
+  margin-left: 10px;
   margin-top: auto;
 }
 
@@ -27,8 +38,10 @@
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+  box-sizing: border-box; /* Ensures padding doesn't affect grid size */
 }
 
+/* Cell Types */
 .table {
   background-color: green;
 }
@@ -41,24 +54,173 @@
   background-color: white;
 }
 
-
+/* Button Styles */
 .closeMapView {
- position: absolute;
- left: 5%;
- top: -10%;
-}
-
-.showTableMap{
   position: absolute;
-  left: 86%;
-  height: 40px;
+  left: 5%;
+  top: 5%;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1000;
+  outline: none; /* Specific to this button */
 }
 
+.showTableMap {
+  position: absolute;
+  height: 40px;
+  margin-top: 10%;
+  left: 25%;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Scaled Close Button */
 .closeMapView.scaledclose {
   position: absolute;
   left: -50%;
   top: -1%;
   background-color: red;
-  scale: 1.5;
-  
+  transform: scale(1.5);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .gridCell {
+    width: 40px;
+    height: 40px;
+  }
+ 
+
+  .gridContainer {
+    gap: 0px; /* Ensure no gap between grid cells */
+  }
+
+  .closeMapView {
+    left: 10%;
+    top: 5%;
+  }
+
+  .showTableMap {
+    left: 30%;
+    height: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gridCell {
+    width: 35px;
+    height: 35px;
+  }
+
+  .gridContainer {
+    gap: 0px; /* Ensure no gap between grid cells */
+  }
+
+  .closeMapView {
+    left: 15%;
+    top: 5%;
+  }
+
+  .showTableMap {
+    left: 30%;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gridCell {
+    width: 30px;
+    height: 30px;
+  }
+
+  .gridContainer {
+    gap: 0px; /* Ensure no gap between grid cells */
+  }
+
+  .closeMapView {
+    left: 20%;
+    top: 5%;
+  }
+
+  .showTableMap {
+    left: 30%;
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gridCell {
+    width: 25px;
+    height: 25px;
+  }
+
+  .gridContainer {
+    gap: 0px; /* Ensure no gap between grid cells */
+  }
+
+  .closeMapView {
+    left: 30%;
+    top: 10%;
+  }
+
+  .showTableMap {
+    left: 30%;
+    height: 40px;
+  }
+  .nonadmin-open-btn{
+    margin-left: 30%;
+  }
+  .showTableMap{
+    margin-top: 5% !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .gridCell {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gridContainer {
+    gap: 0px; /* Ensure no gap between grid cells */
+  }
+
+  .closeMapView {
+    left: 40%;
+    top: 15%;
+  }
+
+  .showTableMap {
+    left: 30%;
+    height: 40px;
+  }
+}
+
+/* Button Styles for Mobile */
+button {
+  margin-top: 10%;
+  padding: 10px;
+  background-color: rgb(120, 167, 255);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 90%;
+  height: 8%;
+  max-width: 400px; /* Limit max width on small screens */
+  margin-left: auto; /* Center button */
+  margin-right: auto; /* Center button */
+}
+
+/* Ensure buttons do not overflow on mobile screens */
+button:focus {
+  outline: none;
 }

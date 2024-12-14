@@ -51,7 +51,7 @@ const EmplyerCard = ({ email, counter ,ind}) => {
 
   return (
     <div className="employerCardBack" style={backgroundImageStyle}>
-      <EditEmpl id={employerData[ind]?.id} name="employer" />
+      <EditEmpl id={employerData[ind]?.id} email={employerData[ind]?.email} name="employer" />
       <OpenEmpl id={employerData[ind]?.id} name="employer" />
       <DeleteEmpl id={employerData[ind]?.id} name="employer" />
       <PhotoIcon email={email} />

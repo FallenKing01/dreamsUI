@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import '../css/tableMapView.css';
+Modal.setAppElement('#root'); // Replace '#root' with the id of your app's root element if different
 
 const TableMap = ({ adminId }) => {
   const [tableMap, setTableMap] = useState(null);

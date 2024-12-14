@@ -5,6 +5,7 @@ import '../css/menu.css'; // Import your CSS file for styling
 import SidebarAdmin from '../components/sidebarAdmin';
 import PhotoIconUpdateProduct from '../photoModal/photoBtnUpdateProduct';
 import Spinner from '../components/spinner'; // Spinner component to indicate loading
+import EditItemInMenu from '../modals/editProduct/editProductBtn';
 
 const deleteProduct = async (prodId, setItemList) => {
   try {
@@ -31,6 +32,12 @@ const deleteProduct = async (prodId, setItemList) => {
   } 
 };
 
+const onUpdateProduct = (updatedProduct, setItemList) => {
+  setItemList((prevItems) =>
+    prevItems.map((item) => (item.id === updatedProduct.id ? updatedProduct : item))
+  );
+};
+
 export default function Menu() {
   const [itemList, setItemList] = useState([]);
   const [loader, setLoader] = useState(true); // Loader state to indicate loading
@@ -50,7 +57,8 @@ export default function Menu() {
             Authorization: `Bearer ${token}`,
           },
         });
-
+      
+        console.log('Items:', response.data);
         setItemList(response.data);
         
       } catch (error) {
@@ -80,7 +88,7 @@ export default function Menu() {
                   <th>Type</th>
                   <th>Price</th>
                   <th>Operation</th>
-                  <th>Update Picture</th> {/* New column for Update Picture */}
+                  <th>Update Picture</th>
                 </tr>
               </thead>
               <tbody>
@@ -92,6 +100,7 @@ export default function Menu() {
                     <td>{item.price}</td>
                     <td>
                       <button className="delMenuProd" onClick={() => deleteProduct(item.id, setItemList)}>Delete</button>
+                      <EditItemInMenu userId={localStorage.getItem('userId')} prodId={item.id} onUpdateProduct={(updatedProduct) => onUpdateProduct(updatedProduct, setItemList)} />
                     </td>
                     <td>
                       <PhotoIconUpdateProduct productId={item.id} /> {/* Icon to update picture */}
@@ -109,4 +118,3 @@ export default function Menu() {
     </>
   );
 }
-  

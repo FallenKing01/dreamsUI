@@ -1,0 +1,33 @@
+.card-table-container-nonadmin {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -12%;
+}
+
+/* For smaller laptops or larger tablets */
+@media screen and (max-width: 1440px) {
+    .card-table-container-nonadmin {
+        margin-left: -25% !important;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .card-table-container-nonadmin {
+        margin-left: -25%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-table-container-nonadmin {
+        margin-left: -45%;
+        padding: 0 10px; /* Optional: Add padding if needed */
+    }
+}
+
+@media (max-width: 576px) {
+    .card-table-container-nonadmin {
+        margin-left: -50% !important;
+    }
+}

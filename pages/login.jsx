@@ -47,7 +47,6 @@ export default function LoginPage() {
 
       localStorage.setItem("token", token);
 
-      // Redirect to / after successful login
       navigate("/");
     } catch (error) {
       if (error.response && error.response.status === 401) {

@@ -5,7 +5,6 @@ import OpenCard from './openBtn';
 import DeleteCard from './deleteCard';
 
 const CardTable = ({ name, id, counter }) => {
-  const marginLeft = counter *270 ; 
 
   return (
     <div className="containerTab">

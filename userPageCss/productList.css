@@ -1,25 +1,150 @@
-/* ProductList.css */
-
-/* Centering the Menu Title and Products */
-.menu-container {
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center align items horizontally */
-  justify-content: center; /* Center align items vertically */
-  padding: 20px; /* Optional: add some padding for spacing */
+.chat-bot-user {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  left: 70%;
+  top: 80%;
 }
 
-.product-container {
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: center; /* Center align products in the container */
-  gap: 10px; /* Optional: add spacing between product cards */
+.chat-bot-user:hover {
+  transform: scale(1.1); 
 }
 
-.menu-title {
-  font-size: 2em; /* Adjust the font size for the title */
-  margin-bottom: 20px; /* Space below the title */
-  color: #333; /* Optional: color for the title */
-  text-align: center; /* Center align the text */
-  width: 100%; /* Ensure it takes the full width of the container */
+.chatbot-popup {
+  position: fixed;
+  bottom: 30%;
+  width: 90%;
+  right: 16px;
+  height: 70%;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  top: 80px;
+}
+
+.chatbot-header {
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header h3 {
+  margin: 0;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.chatbot-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.chat-message {
+  display: flex;
+  width: 100%; 
+  padding: 8px;
+  border-radius: 5px;
+  word-wrap: break-word;
+  margin-bottom: 10px; 
+  color: black;
+}
+
+
+.user-message {
+  background-color: #d4d4d4; 
+  align-self: flex-end; 
+  text-align: right;
+  margin-left: auto; 
+  max-width: 90%; 
+}
+
+.bot-message {
+  background-color: #e0e0e0; 
+  align-self: flex-start; 
+  text-align: left;
+  margin-right: auto; 
+  max-width: 90%; 
+}
+
+
+.thinking-message {
+  font-style: italic;
+  color: #888;
+  text-align: center;
+}
+
+.chatbot-footer {
+  background-color: black;
+  display: flex;
+  padding: 10px;
+  gap: 5px;
+}
+
+.chatbot-footer button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chatbot-footer button:hover {
+  background-color: #0056b3;
+}
+
+.chatbot-footer input {
+  flex: 1;
+  margin-top: 18px;
+  border: 1px solid #ddd;
+height: 15px;
+}
+
+.chatbot-send-button-user {
+  text-align: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 20px;
+}
+
+.chatbot-send-button-user:hover {
+  background-color: #4b4f56;
+}
+
+.background-chatpage {
+  background-color: black;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 1001;
+}
+
+.close-chat-user {
+  margin-left: 75%;
+  margin-top: -10px;
 }

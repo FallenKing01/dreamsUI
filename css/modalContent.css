@@ -1,67 +1,96 @@
-/* Style for labels within the modal */
-.modalLbl  {
-    display: block;
-    margin-bottom: -20px;
-    font-size: 16px;
-   margin-top: 25px;
-    color: #333; /* Text color */
-    margin-left: -340px;
-    font-weight: bold;
-  }
-  .closeCreateTable{
-    margin-top: 56%;
-    margin-left: -65%;
-    background-color: red;
-    margin-right: 50px;
-  }
-  
-  .modalAddProductCloseBtn{
-    margin-top: 44%;
-    margin-left: -60%;
-    background-color: red;
-  }
+.modalLbl {
+  display: block;
+  margin-bottom: -20px;
+  font-size: 16px;
+  margin-top: 25px;
+  color: #333;
+  margin-left: -340px;
+  font-weight: bold;
+}
+#productCreateName,#productCreatePrice,#productCreateTypeMenu{
+  margin-left: -55px;
+}
+#productCreatePrice{
 
-  /* Style for inputs within the modal */
-  .modalInput {
-    width: 55%;
-    position: absolute;
-    left: 100px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #333; /* Text color */
-    background-color: #f9f9f9;
-    transition: border 0.3s;
-  }
-  
-  /* Style for inputs within the modal on focus */
-  .modalInput:focus {
-    border-color: #007bff; /* Change to the color you prefer on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optional box-shadow on focus */
-    outline: none;
-  }
-.modalForm{
+  width: 65%;
+
+}
+#productCreateTypeMenu{
+  width: 69%;
+}
+.modalCreateLblName{
+  margin-top: -40px !important;
+}
+
+.filterProductLbl{
+  margin-top:-30px;
+  margin-bottom: 10px;
+}
+.choseProdLbl{
+  margin-left: -320px;
+}
+.productQtyLbl{
+  margin-left: -380px;
+}
+
+#productFilter {
+  width: 65%;
+  margin-left: -60px;
+}
+
+#productQty {
+  width: 66% !important;
+  margin-left: -60px;
+}
+#productSelect {
+  width: 70% !important;
+  margin-left: -60px;
+}
+.modalAddProductCloseBtn {
+  background-color: red;
+  margin-top: 81%;
+  margin-left: -95%;
+}
+
+.closeCreateTable{
+  background-color: red;
+margin-right: 30px;
+}
+
+.modalInput {
+  width: 55%;
+  position: absolute;
+  left: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border 0.3s;
+}
+
+.modalInput:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.modalForm {
   margin-top: 50px;
 }
 
-.titleModal{
+.titleModal {
   margin-bottom: 80px;
   margin-top: -50px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   color: black;
   text-align: center;
   justify-content: center;
   align-items: center;
 }
-.modalLblTip{
-  margin-left: -308px;
-}
-.modalLblName{
-  margin-top: -50px;
-}
 
-#productDescriptionTxtArea{
+#productDescriptionTxtArea {
   width: 125%;
   height: 100px;
   margin-left: -19%;
@@ -69,75 +98,337 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  color: #333; /* Text color */
+  color: #333;
   background-color: #f9f9f9;
   resize: none;
-  transition: border 0.3s;  
+  transition: border 0.3s;
   margin-bottom: 20px;
 }
-.submitCreateTable{
-  position: absolute;
-  margin-top: 28%;
-  margin-left: 0%;
+
+.submitCreateTable, .submitCreateMenuProduct, .submitEditMenuProduct {
   background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
-}
-.closeCreateMenuProduct{
-  position: absolute;
-  background-color: red;
-  margin-top: -10px;
-  margin-left: -36%;
 }
 .submitCreateMenuProduct{
   position: absolute;
   margin-top: -10px;
-  margin-left: 30px;
-  background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
+  left: 80px;
+}
+.closeCreateMenuProduct, .closeEditMenuProduct {
+  background-color: red;
+}
+.closeCreateMenuProduct{
+  position: absolute;
+  margin-top: -10px;
+  left: 280px;
 }
 
-#productFilter{
-  margin-top: 30px;
+#productFilter, #productSelect, #productQty, #productTypeMenu, #productPrice, #productName {
   width: 65%;
 }
-#productSelect{
-  margin-top: 0px;
-  width: 68%;
-}
-#productQty{
-  margin-top:30px !important;
-  width:65% !important;
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  /* Tablet screen and below */
+  
+  .modalInput {
+    width: 70%;  /* Increase input width on tablets */
+    left: 50%;   /* Center inputs */
+    transform: translateX(-50%);
+  }
+
+  .titleModal {
+    font-size: 28px;
+    margin-top: 30px;
+  }
+
+  #productDescriptionTxtArea {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .submitCreateTable, .submitCreateMenuProduct, .submitEditMenuProduct {
+    margin-top: 10px;
+    margin-left: 0; /* Center the buttons */
+  }
+
+  .modalLbl {
+    margin-left: 0; /* Center labels */
+    font-size: 14px;
+  }
+
+   .modalAddProductCloseBtn {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    margin-left: -50px;
+  }
+
+  .modalAddProductCloseBtn {
+    position: absolute;
+    top: 27%;
+    left: 65%;
+    margin-left: -50px;
+  }
+
+  .modalForm {
+    margin-top: 20px;
+  }
+
+  /* Adjust product selection elements */
+  #productFilter, #productSelect, #productQty {
+    width: 80%;  /* Increase width on tablets */
+  }
+
+ 
+  .submitProduct{
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 160px;
+    top: 76%;
+    left: 10%;
+  }
+  
+  .filterProductLbl{
+    margin-top:-30px;
+    margin-left: -340px;
+    margin-bottom: 10px;
+  }
+  .choseProdLbl{
+    margin-left: -330px;
+  }
+  .productQtyLbl{
+    margin-left: -390px;
+  }
+  
+  #productFilter {
+    width: 80%;
+    margin-left: 0px;
+  }
+  
+  #productQty {
+    width: 80% !important;
+    margin-left: 0px;
+  }
+  #productSelect {
+    width: 84% !important;
+    margin-left: 0px;
+  }
+
 }
 
-.choseProdLbl{
-  margin-top: 45px;
-  margin-left: -50%;
-}
-.filterProductLbl{
-  margin-left: -54%;
+@media (max-width: 768px) {
+  /* Mobile screens */
+  
+  .modalLbl {
+    font-size: 14px;
+    margin-left: 0;
+    margin-top: 15px;  /* Reduce top margin */
+  }
+
+  .modalInput {
+    width: 90%;  /* Make inputs full width */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .titleModal {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  #productDescriptionTxtArea {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .submitCreateTable, .submitCreateMenuProduct, .submitEditMenuProduct {
+    width: 100%;  /* Make buttons full width */
+    margin-top: 15px;
+  }
+
+   .modalAddProductCloseBtn {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    margin-left: -50px;
+  }
+
+  .modalForm {
+    margin-top: 10px;
+  }
+
+  /* Adjust product selection elements */
+  #productFilter, #productSelect, #productQty {
+    width: 90%;  /* Increase width on mobile */
+  }
+
+  .modalLblName, .modalLblPrice, .modalLblType {
+    margin-left: 0; /* Center the labels */
+    margin-top: 15px;
+  }
+
+  .nameProductEditLbl, .priceProductEditLbl, .modalLblType, .descriptionLblEdit {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .filterProductLbl{
+    margin-top:-30px;
+    margin-bottom: 10px;
+  }
+  .choseProdLbl{
+    margin-left: -320px;
+  }
+  .productQtyLbl{
+    margin-left: -380px;
+  }
+  
+  #productFilter {
+    width: 65%;
+    margin-left: -60px;
+  }
+  
+  #productQty {
+    width: 66% !important;
+    margin-left: -60px;
+  }
 }
 
-.productQtyLbl{
-  margin-left: -60%;
-  margin-top:15px;
+@media (max-width: 480px) {
+  /* For very small devices like phones in portrait mode */
+  
+  .modalLbl {
+    font-size: 12px;
+  }
+
+  .modalInput, #productDescriptionTxtArea, #productFilter, #productSelect, #productQty {
+    width: 120%;  /* Make all inputs and selects full width */
+  }
+
+  #productSelect,#productQty,#productFilter{
+    margin-left: 0% !important;
+  }
+  .submitCreateTable, .submitCreateMenuProduct, .submitEditMenuProduct {
+    width: 100%;  /* Full-width buttons */
+  }
+
+  .titleModal {
+    font-size: 20px;  /* Smaller title on very small screens */
+    margin-top: 50px;
+  }
+
+  .modalForm {
+    margin-top: 0;
+  }
+
+   .modalAddProductCloseBtn {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 120px;
+    top: 35%;
+    margin-left: -50px;
+  }
+  .submitProduct{
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 120px;
+    top: 76%;
+    left: 50%;
+  }
+
+  .filterProductLbl{
+    margin-top:-30px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    margin-left: -120%;
+  }
+  .choseProdLbl{
+    font-size: 15px;
+    margin-left: -110%;
+    }
+  .productQtyLbl{
+    font-size: 15px;
+    margin-left: -150%;
+  }
+  
+  #productFilter {
+    width: 65%;
+    margin-left: -60px;
+  }
+  
+  #productQty {
+    width: 66% !important;
+    margin-left: -60px;
+  }
 }
 
-#productTypeMenu{
-  margin-left: -7%;
-  width:75%;
-}
-#productPrice{
-  margin-left: -7%;
-  width:71%;
 
-}
+/*           EDIT MODAL           */
 
-#productName{
-  margin-left: -7%;
-  width:71%;
-}
-.modalLblPrice{
-  margin-left: -100%;
-  margin-top: 15px;
-}
-.modalLblName{
-  margin-left: -100%;
-}
+.titleModalEditProduct{
+  margin-top: -50px;
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;}
+
+  .nameProductEditLbl{
+    margin-top: 30px;
+  }
+  .nameProductEditLbl{
+  }
+  .priceProductEditLbl{
+    margin-top: 80px;
+  }
+  .modalLblType{
+    margin-top: 85px;
+  }
+  .descriptionLblEdit{
+    margin-top: 80px;
+  }
+  .submitEditMenuProduct{
+    position: absolute;
+    margin-top: 200px;
+    left: 80px;
+  }
+
+  .closeEditMenuProduct{
+    position: absolute;
+    margin-top: 200px;
+    left: 280px;
+  }
+
+  #productNameEdit{
+    margin-left: -55px;
+    margin-top: 25px;
+  }
+  #productPriceEdit{
+    margin-left: -55px;
+    margin-top: 25px;
+    width: 65%;
+  }
+  #productTypeMenuEdit{
+    margin-left: -55px;
+    margin-top: 25px;
+    width: 69%;
+  }
+  #productDescriptionTxtAreaEdit{
+    width: 160%;
+    height: 100px;
+    margin-left: -50%;
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    resize: none;
+    transition: border 0.3s;
+    margin-bottom: 20px;
+  }
