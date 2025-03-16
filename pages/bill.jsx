@@ -12,6 +12,7 @@ export default function Bill() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [loader, setLoader] = useState(true);
   const [modalProducts, setModalProducts] = useState([]);
+  const [page, setPage] = useState(1);
 
   // Fetch items for the bill
   const fetchItems = async () => {
@@ -37,7 +38,7 @@ export default function Bill() {
 
     try {
       const adminId = localStorage.getItem('adminId');
-      const getMenuProducts = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/menu/getproducts/${adminId}`, {
+      const getMenuProducts = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/menu/getproducts/${adminId}/${page}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setModalProducts(getMenuProducts.data);
@@ -119,10 +120,8 @@ export default function Bill() {
 
       {!loader && (
         <div className="billContainer">
-          {/* Add Product Button */}
           <AddProducts tableId={id} onProductAdded={handleProductAdded} menuProducts={modalProducts} />
 
-          {/* Reset Button */}
           <button className="resetBtn" onClick={handleReset}>Emit the bill</button>
 
           <div className="billContent">

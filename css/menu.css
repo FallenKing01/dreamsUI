@@ -53,3 +53,56 @@
   top: 50px;
   color: black;
 }
+
+
+.menu-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 30%;
+}
+
+/* Pagination Button Styles */
+.menu-pagination button {
+  border: none;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.menu-pagination button:hover {
+  background-color: darkgreen;
+}
+
+.menu-pagination button:disabled {
+  background-color: red;
+  cursor: not-allowed;
+
+}
+
+.menuPageNumber{
+  margin-top: 60px;
+}
+
+/* Responsive Pagination for Smaller Screens */
+@media (max-width: 480px) {
+  .menu-pagination {
+      flex-direction: row; /* Ensure inline display */
+      width: 100%;
+  }
+
+  .menu-pagination span {
+      font-size: 14px;
+      color: white;
+  }
+
+  .menu-pagination button {
+      font-size: 14px;
+      padding: 8px 12px;
+  }
+}

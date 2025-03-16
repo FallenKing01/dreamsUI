@@ -81,3 +81,6 @@
     background-color: #c82333; /* Darker shade on hover */
   }
   
+  .submit-review{
+    background-color: green !important ;
+  }

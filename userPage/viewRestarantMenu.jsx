@@ -125,7 +125,7 @@ const ProductList = () => {
                 key={product._id}
                 productId={product._id}
                 imageUrl={product.imageUrl}
-                description={product.description} // Assuming this field exists; if not, remove it
+                description={product.description} 
                 price={product.price}
                 name={product.name}
               />

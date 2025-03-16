@@ -11,30 +11,38 @@
   opacity: 0; /* Initially transparent */
   animation: slideIn 1.5s ease-in-out forwards, slideBack 1.5s ease-in-out 6s forwards; /* Animation for initial slide-in and slide back after 6 seconds */
 }
-
+.error-alert-review{
+  position: absolute;
+  top: 5%;
+  left: 34%;
+  width: 30%;
+  background-color: #ff4d4f;
+  color: #fff;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  opacity: 0; 
+  animation: slideIn 1.5s ease-in-out forwards, slideBack 1.5s ease-in-out 6s forwards;
+}
 @keyframes slideIn {
   0% {
-    opacity: 0; /* Initially transparent */
+    opacity: 0; 
 
   }
   100% {
-    opacity: 1; /* Make it fully visible */
+    opacity: 1; 
 
   }
 }
 
 @keyframes slideBack {
   0% {
-    opacity: 1; /* Make it fully visible */
+    opacity: 1; 
   }
   100% {
     opacity: 0; /* Fade out */
   }
 }
-
-
-
-  
   .error-header {
     display: flex;
     align-items: center;
@@ -67,10 +75,19 @@
   /* Add this class to make it visible */
   
   
-  /* Media query for smaller screens (adjust as needed) */
-  @media (max-width: 768px) {
-    .error-alert {
-      font-size: 14px;
+@media (min-width: 481px) and (max-width: 768px) {
+    .error-alert-review{
+      width: 50% !important;
     }
+}
+
+@media (max-width: 480px) {
+  .error-alert {
+    width: 90%;
+    left: 5%;
   }
-  
+  .error-alert-review{
+    width: 60%;
+    left: 5%;
+  }
+}

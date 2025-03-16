@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddItemInMenu from '../components/addItemMenu';
-import '../css/menu.css'; // Import your CSS file for styling
+import '../css/menu.css';
 import SidebarAdmin from '../components/sidebarAdmin';
 import PhotoIconUpdateProduct from '../photoModal/photoBtnUpdateProduct';
-import Spinner from '../components/spinner'; // Spinner component to indicate loading
+import Spinner from '../components/spinner';
 import EditItemInMenu from '../modals/editProduct/editProductBtn';
 
 const deleteProduct = async (prodId, setItemList) => {
@@ -16,7 +16,6 @@ const deleteProduct = async (prodId, setItemList) => {
       return;
     }
 
-    // Make a DELETE request to the API endpoint
     await axios.delete(`https://dreamsdeluxeapi.azurewebsites.net/menudeleteProd/${prodId}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +23,6 @@ const deleteProduct = async (prodId, setItemList) => {
       },
     });
 
-    // Update the itemList state after successful deletion
     setItemList((prevItems) => prevItems.filter(item => item.id !== prodId));
 
   } catch (error) {
@@ -40,11 +38,11 @@ const onUpdateProduct = (updatedProduct, setItemList) => {
 
 export default function Menu() {
   const [itemList, setItemList] = useState([]);
-  const [loader, setLoader] = useState(true); // Loader state to indicate loading
+  const [loader, setLoader] = useState(true); 
+  const [page, setPage] = useState(1);
 
-  // Function to add a product to the itemList after successful creation
   const handleAddProduct = (newProduct) => {
-    setItemList((prevItems) => [...prevItems, newProduct]); // Add the new product to the current list
+    setItemList((prevItems) => [...prevItems, newProduct]);
   };
 
   useEffect(() => {
@@ -52,13 +50,12 @@ export default function Menu() {
       const token = localStorage.getItem('token');
       
       try {
-        const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/menu/getproducts/${localStorage.getItem("userId")}`, {
+        const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/menu/getproducts/${localStorage.getItem("userId")}/${page}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
       
-        console.log('Items:', response.data);
         setItemList(response.data);
         
       } catch (error) {
@@ -69,12 +66,12 @@ export default function Menu() {
     };
 
     fetchItems();
-  }, []);
+  }, [page]);
 
   return (
     <>
       {loader ? (
-        <Spinner /> // Show spinner when loader is true
+        <Spinner />
       ) : (
         <div className="menuContainer">
           <SidebarAdmin />
@@ -103,13 +100,31 @@ export default function Menu() {
                       <EditItemInMenu userId={localStorage.getItem('userId')} prodId={item.id} onUpdateProduct={(updatedProduct) => onUpdateProduct(updatedProduct, setItemList)} />
                     </td>
                     <td>
-                      <PhotoIconUpdateProduct productId={item.id} /> {/* Icon to update picture */}
+                      <PhotoIconUpdateProduct productId={item.id} />
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            <div className="menu-pagination">
+            <button 
+              onClick={() => setPage(page - 1)} 
+              disabled={page === 1}
+            >
+              Previous
+            </button>
+            <span className='menuPageNumber'>Page {page}</span>
+            <button 
+              onClick={() => setPage(page + 1)}
+              disabled={itemList.length === 0}
+            >
+              Next
+            </button>
           </div>
+          </div>
+
+        
+
           <div className="menuButtons">
             <AddItemInMenu userId={localStorage.getItem('userId')} onAddProduct={handleAddProduct} />
           </div>

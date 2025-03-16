@@ -80,7 +80,27 @@ export default function LoginPage() {
 
   return (
     <div style={blackBackgroundStyle}>
-      {loader && <ColorRing />} {/* Render the spinner conditionally */}
+     {loader && (
+         <div
+           style={{
+             backgroundColor: 'black',
+             minHeight: '100vh',
+             display: 'flex',
+             alignItems: 'center',
+             justifyContent: 'center',
+             zIndex: 1,
+           }}
+         >
+           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+             <ColorRing />
+             <div
+               style={{ color: 'white', fontSize: '20px', marginTop: '10px', marginLeft: '5px' }}
+             >
+               Loading...
+             </div>
+           </div>
+         </div>
+       )}
       {showAlert && <Alert message={alertMessage} onClose={handleAlertClose} />}
       <img src=".//images/bar.avif" alt="" />
       {!loader && (
@@ -107,8 +127,8 @@ export default function LoginPage() {
           />
           <br />
           <br />
-          <div className="forgot">Forgot password</div>
-          <input type="checkbox" className="check" />
+          <div className="forgot">  <a href="/forgotpassword">Forgot password</a>
+          </div>
           <button className="submit-login-btn" onClick={handleLogin}>
             Submit
           </button>
