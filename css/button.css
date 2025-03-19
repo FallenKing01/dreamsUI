@@ -60,11 +60,11 @@ button:hover {
 
 .submitProduct{
     position: absolute;
-    margin-top: 2.4%;
+    margin-top: 0%;
     margin-left: 20%;
     background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
 }
 #productQty{
-    margin-top: 50px;
+    margin-top: 40px;
     width: 350px;
 }

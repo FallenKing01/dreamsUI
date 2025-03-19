@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Modal from './modal';
-import ModalAddProduct from './modalAddProduct';
+import ModalAddBarProduct from './modalAddProductBar';
+import ModalAddProduct from './modalAddProduct'; // <--- this was missing!
+
 import "../css/button.css"
 
-const AddProducts = ({tableId,onProductAdded , menuProducts}) => {
+const AddProducts = ({ tableId, onProductAdded, menuProducts }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -16,10 +17,10 @@ const AddProducts = ({tableId,onProductAdded , menuProducts}) => {
 
   return (
     <div>
-      <button onClick={openModal} className="addProducts" >Add Product</button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <ModalAddProduct onClose={closeModal} tableId={tableId} onProductAdded={onProductAdded} menuProducts = {menuProducts} />
-      </Modal>
+      <button onClick={openModal} className="addProducts">Add Product</button>
+      <ModalAddBarProduct isOpen={isModalOpen} onClose={closeModal}>
+        <ModalAddProduct onClose={closeModal} tableId={tableId} onProductAdded={onProductAdded} menuProducts={menuProducts} />
+      </ModalAddBarProduct>
     </div>
   );
 };
