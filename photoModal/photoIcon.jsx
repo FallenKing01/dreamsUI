@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import UploadPhotoModal from './photoModContent';
-import "../css/PhotoIcon.css";
+import "../css/photoIcon.css";
 import PhotoBackModal from './backModal';
 // In your component
 
