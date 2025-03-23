@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReviewError from '../components/ReviewError'; 
+import ReviewError from '../components/reviewError'; 
 import '../userPageCss/addRating.css';
 
 const ReviewSubmission = ({ isOpen, onClose, restaurantId, clientId, onReviewAdded }) => {
