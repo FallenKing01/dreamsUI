@@ -11,11 +11,7 @@
 }
 button::before {
     
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
+   
     border: 1px solid #6A00B6; 
     border-radius: 5px;
     box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.2);
@@ -30,9 +26,11 @@ button:hover {
 
 .create-btn{
     position: relative;
-    left: 13%;
-    top: -120% !important;
+    display: flex;
+    justify-content: center ;
     background-color: #00ff4c;
+    left: -27%;
+    margin-top: 2%;
 }
 .close-btn{
     background: linear-gradient(to bottom, #ff7b7b, #ff4444); /* Purple gradient background */
@@ -68,3 +66,4 @@ button:hover {
     margin-top: 40px;
     width: 350px;
 }
+

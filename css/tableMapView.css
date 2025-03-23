@@ -67,16 +67,15 @@
 }
 
 .showTableMap {
-  position: absolute;
-  height: 40px;
-  margin-top: -2.6%;
-  left: 25%;
-  background-color: blue;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
+ 
+  
+  position:relative;
+    display: inline-block;
+    justify-content: center ;
+    background-color: blue;
+    border-radius: 5px;
+    left: 17%;
+    margin-top: 5%;
 }
 
 /* Scaled Close Button */

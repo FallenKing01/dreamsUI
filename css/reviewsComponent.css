@@ -4,6 +4,12 @@
     align-items: center;
     text-align: center;
 }
+.addReviewBtn{
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  background-color: green;
+}
 
 .reviews-container {
     max-width: 800px; /* Maximum width for the container */

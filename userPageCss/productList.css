@@ -1,3 +1,4 @@
+/* Base styles */
 .chat-bot-user {
   position: fixed;
   width: 80px;
@@ -70,7 +71,6 @@
   color: black;
 }
 
-
 .user-message {
   background-color: #d4d4d4; 
   align-self: flex-end; 
@@ -86,7 +86,6 @@
   margin-right: auto; 
   max-width: 90%; 
 }
-
 
 .thinking-message {
   font-style: italic;
@@ -147,4 +146,70 @@
 .close-chat-user {
   margin-left: 75%;
   margin-top: -10px;
+}
+
+/* Media Queries for Larger Screens (Laptop and Desktop) */
+
+/* For screens larger than 1024px (Laptop and Desktop) */
+@media (min-width: 1025px) {
+  .chat-bot-user {
+    width: 100px;
+    height: 100px;
+    left: 70%;
+    top: 80%;
+  }
+
+  .chatbot-popup {
+    width: 35%;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -50%);
+  }
+
+  .chatbot-header {
+    padding: 12px;
+  }
+
+  .chatbot-body {
+    padding: 14px;
+  }
+
+  .chatbot-footer {
+    padding: 12px;
+  }
+
+  .chatbot-footer input {
+    height: 30px;
+  }
+
+  .chatbot-send-button-user {
+    font-size: 22px;
+  }
+
+  .close-chat-user {
+    margin-left: 90%;
+    margin-top: -10px;
+  }
+
+  /* Chatbot message padding and text adjustments */
+  .chat-message {
+    padding: 12px; /* Increased padding for better readability */
+  }
+
+  .user-message {
+    max-width: 85%; /* Slightly increased max-width to make it look balanced */
+  }
+
+  .bot-message {
+    max-width: 85%;
+  }
+
+  /* Adjust button sizes */
+  .chatbot-footer button {
+    padding: 8px 15px;
+    font-size: 1.2em;
+  }
 }

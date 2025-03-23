@@ -74,7 +74,18 @@
   .bar-modal-add-product-close-btn:hover {
     background-color: #d32f2f;
   }
-  
+
+  .bar-search-bar-product{
+    width: 80%;
+    margin:auto;
+  }
+  #productQty {
+    width: 77% !important;
+    margin: auto;
+  }
+  .bar-submit-product{
+    background-color: green;
+  }
   /* Responsive styling */
   @media screen and (max-width: 600px) {
     .bar-modal-form {

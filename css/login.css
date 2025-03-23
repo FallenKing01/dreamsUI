@@ -1,7 +1,118 @@
-body {
+/* Full-screen background */
+body, html {
     margin: 0;
-    overflow: auto; /* Allow scrolling by default */
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
+
+.login-page {
+    background: url("../images/bar.avif") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Login Card */
+.login-container {
+    background-color: rgba(39, 0, 93, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    max-width: 400px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Elements */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 16px;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Forgot password */
+.forgot-link {
+    text-align: right;
+    font-size: 14px;
+}
+
+.forgot-link a {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+/* Button */
+.login-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #27005D;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ddd;
+}
+
+/* Loader Overlay */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.loader-overlay p {
+    margin-top: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+    .login-container {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    input {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .login-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
 
 img {
     width: 100%;
@@ -11,81 +122,4 @@ img {
     top: 0;
     left: 0;
     z-index: -1;
-}
-.lg-back{
-    width: 500px;
-    height: 570px;
-    background-color: #27005D;
-    border-radius: 20px;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.username-lbl{
-    position: absolute;
-    left: 12%;
-    top: 15%;
-   
-}
-.password-lbl{
-    position: absolute;
-    left: 12%;
-    margin-top: 38%;
-}
-label{
-    font-size: 25px;
-}
-.submit-btn {
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    width: 350px;
-  }
-  input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    width: 350px;
-  }
-
-  input[type="checkbox"] {
-    width: 14px; 
-    height: 14px; 
-  }
-  .username-inp1{
-    
-    position: absolute;
-    margin-top: 25%;
-    left: 12%;
-  }
-
-  .password-inp2{
-    
-    position: absolute;
-    margin-top: 45%;
-    left: 12%;
-}
-.forgot{
-    position: absolute;
-    margin-top: 50%;
-    font-size: 17px;
-    left:61%;
-}
-.check{
-    position: absolute;
-    margin-top: 50.5%;
-    font-size: 20px;
-    left:56%;
-    
 }

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Alert from "../components/alert";
 import { ColorRing } from "react-loader-spinner";
-
 import "../css/login.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showAlert, setShowAlert] = useState(false);
@@ -17,11 +15,9 @@ export default function LoginPage() {
 
   const handleLogin = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Close the alert before making the API call
     setShowAlert(false);
 
-    if (username === "" || password === "") {
+    if (!username || !password) {
       setShowAlert(true);
       setAlertMessage("Please enter all the fields");
       return;
@@ -37,103 +33,77 @@ export default function LoginPage() {
       setLoader(true);
       const response = await axios.post(
         "https://dreamsdeluxeapi.azurewebsites.net/login/",
-        {
-          username: username,
-          password: password,
-        }
+        { username, password }
       );
-
       const token = response.data["Authentication successful"];
-
       localStorage.setItem("token", token);
-
       navigate("/");
     } catch (error) {
-      if (error.response && error.response.status === 401) {
+      if (error.response?.status === 401) {
         setShowAlert(true);
         setAlertMessage("Invalid username or password");
-      } else if (error.response && error.response.status === 404) {
+      } else if (error.response?.status === 404) {
         setShowAlert(true);
         setAlertMessage("User not found");
       } else {
         setShowAlert(true);
         setAlertMessage("An error occurred during login");
-        console.error("Error:", error.message);
       }
     } finally {
       setLoader(false);
     }
   };
 
-  const handleAlertClose = () => {
-    setShowAlert(false);
-  };
-
-  const blackBackgroundStyle = {
-    backgroundColor: loader ? "black" : "transparent",
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: loader ? 1 : "auto",
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    setLoader(true);
+    setTimeout(() => {
+      navigate("/forgotpassword");
+    }, 300);
   };
 
   return (
-    <div style={blackBackgroundStyle}>
-     {loader && (
-         <div
-           style={{
-             backgroundColor: 'black',
-             minHeight: '100vh',
-             display: 'flex',
-             alignItems: 'center',
-             justifyContent: 'center',
-             zIndex: 1,
-           }}
-         >
-           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-             <ColorRing />
-             <div
-               style={{ color: 'white', fontSize: '20px', marginTop: '10px', marginLeft: '5px' }}
-             >
-               Loading...
-             </div>
-           </div>
-         </div>
-       )}
-      {showAlert && <Alert message={alertMessage} onClose={handleAlertClose} />}
-      <img src=".//images/bar.avif" alt="" />
-      {!loader && (
-        <div className={`lg-back ${loader ? 'transparent' : ''}`}>
-          <label htmlFor="" className="username-lbl">
-            Username
-          </label>
+    <div className="login-page">
+      {loader && (
+        <div className="loader-overlay">
+          <ColorRing />
+          <p>Loading...</p>
+        </div>
+      )}
+
+      {showAlert && <Alert message={alertMessage} onClose={() => setShowAlert(false)} />}
+
+      <div className="login-container">
+        <h2>Login</h2>
+        <div className="input-group">
+          <label htmlFor="username">Email</label>
           <input
             type="text"
-            className="username-inp1"
+            id="username"
+            placeholder="Enter your email"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <br />
-          <br />
-          <label htmlFor="" className="password-lbl">
-            Password
-          </label>
+        </div>
+        <div className="input-group">
+          <label htmlFor="password">Password</label>
           <input
             type="password"
-            className="password-inp2"
+            id="password"
+            placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <br />
-          <br />
-          <div className="forgot">  <a href="/forgotpassword">Forgot password</a>
-          </div>
-          <button className="submit-login-btn" onClick={handleLogin}>
-            Submit
-          </button>
         </div>
-      )}
+        <div className="forgot-link">
+          <a href="/forgotpassword" onClick={handleForgotPassword}>
+            Forgot Password?
+          </a>
+        </div>
+        <button onClick={handleLogin} className="login-btn">
+          Login
+        </button>
+      </div>
     </div>
   );
 }

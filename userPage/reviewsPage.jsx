@@ -58,7 +58,7 @@ const ReviewsComponent = () => {
       <UserNavBar />
       <div className="reviews-container">
         <h1 className="reviewsTitle">Reviews for restaurant</h1>
-        <button onClick={() => setIsPopupOpen(true)}>Add Review</button>
+        <button onClick={() => setIsPopupOpen(true)} className="addReviewBtn">Add review</button>
         <RatingFilter selectedRating={selectedRating} setSelectedRating={setSelectedRating} />
         {filteredReviews.length === 0 ? (
           <p className="noReviewsTxt">No reviews available.</p>

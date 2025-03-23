@@ -15,6 +15,8 @@ import ProductList from '../userPage/viewRestarantMenu';
 import ReviewsComponent from '../userPage/reviewsPage';
 import LunaRestaurantChatbot from '../pages/lunaRestaurant';
 import UserProfile from '../userPage/profilePage';
+import ForgotPassword from '../userPage/forgotPassword';
+import ChangePassword from '../userPage/resetPassword';
 function App() {
   return (
     <div className="App">
@@ -36,6 +38,11 @@ function App() {
           <Route path="/charts" element={<ChartPage />} />
           <Route path="/user" element={<UserMainPage />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/forgotpassword" element={<ForgotPassword/>} />
+          <Route path="/change-password" element={<ChangePassword/>} />
+
+          
+
         </Routes>
       </BrowserRouter>
     </div>

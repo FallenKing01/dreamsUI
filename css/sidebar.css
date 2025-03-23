@@ -2,7 +2,7 @@
 .sidebar {
   box-shadow: 4px 5px 0 0 rgba(0,0,0,.2);
   width: 60px; /* Initial width */
-  height: 100vh; /* Full viewport height by default */
+  height: 100%; /* Full viewport height by default */
   position: fixed;
   left: 0;
   top: 0;
@@ -80,4 +80,21 @@
 
 .icons{
 padding: 0px 20px 0px 0px;
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 20px;
+  }
+
+  .sidebar:hover {
+    width: 100px;
+  }
+
+  .sidebar-item {
+    font-size: 12px;
+  }
+  .logo{
+   width: 0;
+  }
 }
