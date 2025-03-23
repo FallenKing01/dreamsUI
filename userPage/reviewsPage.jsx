@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import '../css/ReviewsComponent.css'; // Import the CSS file
+import '../css/reviewsComponent.css'; // Import the CSS file
 import ReviewCard from '../userPageComponents/reviewCard'; // Import the ReviewCard component
 import RatingFilter from '../userPageComponents/reviewFilter'; // Import the RatingFilter component
 import UserNavBar from '../userPageComponents/navBarUserPage.jsx';
