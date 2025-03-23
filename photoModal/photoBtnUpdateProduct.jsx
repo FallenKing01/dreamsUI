@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import ImageUploadProductForm from './photoProductModal';
 import PhotoBackModalProductUpdate from './backModalUpdatePhotoProduct';
-import "../css/PhotoIcon.css";
+import "../css/photoIcon.css";
 
 // In your component
 
