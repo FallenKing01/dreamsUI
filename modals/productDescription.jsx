@@ -1,5 +1,5 @@
 import React from 'react';
-import '../modals/ProductDescription.css'; // Import CSS for styling
+import '../modals/productDescription.css'; // Import CSS for styling
 import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Import the close icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
