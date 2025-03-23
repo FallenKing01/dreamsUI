@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "../css/ModalContent.css";
+import "../css/modalContent.css";
 
 const ModalEditMenu = ({ onClose, userId, onAddProduct }) => {
   const [name, setName] = useState("");

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
-import "../css/ModalContent.css"
+import "../css/modalContent.css"
 
 const ModalContent = ({ onClose }) => {
   const [name, setName] = useState("");
