@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import '../userPageCss/productgitList.css';
+import '../userPageCss/productList.css';
 import ProductCard from '../userPageComponents/productCard';
 import Spinner from '../components/spinner';
 import UserNavBar from '../userPageComponents/navBarUserPage.jsx';
