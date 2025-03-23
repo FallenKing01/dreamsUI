@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faTowerBroadcast } from '@fortawesome/free-solid-svg-icons';
-import '../userPageCss/UserNavBar.css'; // Import your CSS file
+import '../userPageCss/userNavBar.css'; // Import your CSS file
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const UserNavBar = () => {
