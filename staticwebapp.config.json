@@ -1,9 +1,68 @@
 {
     "routes": [
       {
-        "route": "/*",
-        "serve": "/index.html",
-        "statusCode": 200
+        "route": "/login",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/profile",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/table/:id",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/restaurantmenu/:restaurantId",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/reviews/:restaurantId",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/luna",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/employer",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/employer/:idEmployer",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/menu",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/tablemap",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/charts",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/user",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/profile",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/forgotpassword",
+        "serve": "/index.html"
+      },
+      {
+        "route": "/change-password",
+        "serve": "/index.html"
       }
     ]
   }
