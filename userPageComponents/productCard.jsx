@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../userPageCss/ProductCard.css';
+import '../userPageCss/productCard.css';
 import ProductDescriptionModal from '../modals/productDescription';
 
 const ProductCard = ({ productId, imageUrl, description, price, name }) => {
