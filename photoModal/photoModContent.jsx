@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../photoModal/backMod.css';
 
 const ImageUploadForm = ({ email, onClose }) => {
   const [image, setImage] = useState(null);
@@ -43,7 +44,7 @@ const ImageUploadForm = ({ email, onClose }) => {
 
   return (
     <div>
-      <h1>Image Upload Form</h1>
+      <h1 className='uploadEmployeeImg'>Image Upload Form</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <button type="button" onClick={triggerFileInput} className="customUploadButton">
           Choose Image...

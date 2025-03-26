@@ -25,7 +25,7 @@
     
     position: absolute;
     margin-top:330px;
-    z-index: 0.5;
+    z-index: -0.999 ;
     background-color: #008000;
     border-radius: 0 0 10px 10px;
     display: flex;
