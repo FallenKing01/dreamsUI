@@ -31,7 +31,7 @@ const LunaRestaurantChatbot = () => {
 
             try {
 
-                const response = await axios.post('http://127.0.0.1:8000/client/chat_engine', {
+                const response = await axios.post('https://lunalicentai-5854dda4045a.herokuapp.com/client/chat_engine', {
                     question: question,
                     history: updatedHistory
                 });

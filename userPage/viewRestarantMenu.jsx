@@ -73,7 +73,7 @@ const ProductList = () => {
     try {
       // Send the history with the user message to the API
       const response = await axios.post(
-        `http://127.0.0.1:8000/client/restaurant_chat_engine/${restaurantId}`,
+        `https://lunalicentai-5854dda4045a.herokuapp.com/client/restaurant_chat_engine/${restaurantId}`,
         { question: userMessage, history: history }
       );
 
