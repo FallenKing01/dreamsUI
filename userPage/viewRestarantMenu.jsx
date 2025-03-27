@@ -138,7 +138,7 @@ const ProductList = () => {
 
       {/* Chatbot Icon */}
       <img
-        src="../images/chatbotavatar.jpg"
+        src="https://dreamsblob.blob.core.windows.net/appimages/chatbotavatar.jpg"
         alt="Chatbot"
         className="chat-bot-user"
         onClick={() => setIsChatOpen(!isChatOpen)} // Toggle chatbot popup

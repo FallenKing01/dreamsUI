@@ -74,7 +74,7 @@ const LunaRestaurantChatbot = () => {
                     {messages.map((message, index) => (
                         <div key={index} className={`message-wrapper ${message.sender}`}>
                             {message.sender === 'bot' && (
-                                <img src="../images/chatbotavatar.jpg" alt="avatar" className="avatar avatar-img" />
+                                <img src="https://dreamsblob.blob.core.windows.net/appimages/chatbotavatar.jpg" alt="avatar" className="avatar avatar-img" />
                             )}
                             <div className={`message ${message.sender}`}>
                                 <div>{message.text}</div>

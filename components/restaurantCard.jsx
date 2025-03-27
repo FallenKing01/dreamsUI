@@ -8,7 +8,7 @@ const RestaurantCardComponent = ({ name, id }) => {
   return (
     <div className="containerRest-restaurant">
       <div className="restaurantBack-restaurant">
-        <img className="imgTable-restaurant" src="../images/restaurantProfile.jpg" alt="Restaurant" /> {/* Add the image */}
+        <img className="imgTable-restaurant" src="https://dreamsblob.blob.core.windows.net/appimages/restaurantProfile.jpg" alt="Restaurant" /> {/* Add the image */}
         <div className="buttons-container">
           <OpenCard id={id}  name="restaurantmenu" className="openRestaurant"/>
           <OpenReviews id={id} name="reviews" className="openReviews"/>
