@@ -4,7 +4,7 @@
     margin-left: 240px; /* Adjusted margin for better spacing */
     float: left; /* Float left to create a column layout */
     margin-bottom: 20px; /* Added margin-bottom for spacing between columns */
-    background-image: url('../images/restaurant.jpg'); /* Replace with the path to your image */
+    background-image: url('https://dreamsblob.blob.core.windows.net/appimages/restaurant.jpg'); /* Replace with the path to your image */
     border-radius: 10px;
     background-size: cover; /* This will make the image cover the entire div */
     background-position: center;

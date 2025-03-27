@@ -19,7 +19,7 @@
     width: 100%;
     width: 1000px;
     height: 550px; /* Fixed height */
-    background-image: url('../images/backgroundbot.jpg');
+    background-image: url('https://dreamsblob.blob.core.windows.net/appimages/backgroundbot.jpg');
     background-size: cover; /* Scale image to cover the entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent tiling */

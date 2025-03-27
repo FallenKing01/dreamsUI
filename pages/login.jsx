@@ -37,7 +37,7 @@ export default function LoginPage() {
       );
       const token = response.data["Authentication successful"];
       localStorage.setItem("token", token);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       if (error.response?.status === 401) {
         setShowAlert(true);

@@ -84,7 +84,7 @@ const LunaRestaurantChatbot = () => {
 
                     {loading && (
                         <div className="message-wrapper bot">
-                            <img src="../images/chatbotavatar.jpg" alt="avatar" className="avatar" />
+                            <img src="https://dreamsblob.blob.core.windows.net/appimages/chatbotavatar.jpg" alt="avatar" className="avatar" />
                             <div className="message bot">Luna is typing...</div>
                         </div>
                     )}
