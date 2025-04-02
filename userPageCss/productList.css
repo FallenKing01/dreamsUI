@@ -212,3 +212,10 @@
     font-size: 1.2em;
   }
 }
+
+.search-products-category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}

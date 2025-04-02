@@ -1,3 +1,9 @@
 .cardSpacing{
     margin-top: 150px;
 }
+.restaurants-not-found-message{
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}

@@ -16,7 +16,7 @@ function SidebarAdmin() {
       <div className="sidebar">
         <img src="../images/logo.png" alt="img" className="logo"/>
         <div className="itm">
-          <div className="sidebar-item">  <FontAwesomeIcon icon={faHome} className="icons"/><a href="/" className='sidebar-item'> Home</a></div>
+          <div className="sidebar-item">  <FontAwesomeIcon icon={faHome} className="icons"/><a href="/home" className='sidebar-item'> Home</a></div>
           <div className="sidebar-item">  <FontAwesomeIcon icon={faPeopleGroup} className="icons" /><a href="/employer" className='sidebar-item'>Employers</a></div>
           <div className="sidebar-item">  <FontAwesomeIcon icon={faBowlFood} className="icons"/><a href="/menu" className='sidebar-item'>Menu</a></div>
           <div className="sidebar-item"> <FontAwesomeIcon icon={faMap} className='icons'/><a href='/tablemap' className='sidebar-item'>Table map</a> </div>

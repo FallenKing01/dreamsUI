@@ -29,7 +29,7 @@ const ProductCard = ({ productId, imageUrl, description, price, name }) => {
                 <button className='viewProductDetails' onClick={openModal}>
                     View details
                 </button>
-                <p className="product-price">${price.toFixed(2)}</p>
+                <p className="product-price">{price.toFixed(2)} lei</p>
             </div>
 
             <ProductDescriptionModal isOpen={isModalOpen} onClose={closeModal} description={description} />

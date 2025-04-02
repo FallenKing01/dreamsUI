@@ -53,7 +53,7 @@ const UserMainPage = () => {
                     ))}
                 </div>
             ) : (
-                <div>No restaurants found for your location</div>
+                <div className='restaurants-not-found-message'>No restaurants found for your location</div>
             )}
 
             <SearchRestaurant />

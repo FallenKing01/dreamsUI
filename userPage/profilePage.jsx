@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import UserNavBar from '../userPageComponents/navBarUserPage.jsx';
 import axios from 'axios';
 import '../userPageCss/profilePage.css';
 import { ColorRing } from 'react-loader-spinner';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
+import Spinner from '../components/spinner'; 
 
 const UserProfile = () => {
     const [userName, setUserName] = useState('');
@@ -13,6 +15,10 @@ const UserProfile = () => {
     const [cities, setCities] = useState([]);
     const [selectedJudet, setSelectedJudet] = useState(null);
     const [selectedCity, setSelectedCity] = useState(null);
+    const [updating, setUpdating] = useState(false);
+    const [message, setMessage] = useState('');
+    const [redirecting, setRedirecting] = useState(false);
+    const navigate = useNavigate(); // Initialize navigate
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -77,11 +83,40 @@ const UserProfile = () => {
         setSelectedCity(item);
     };
 
-    const formatResult = (item) => (
-        <div style={{ display: 'flex', alignItems: 'center', padding: 10 }}>
-            <span style={{ fontSize: '14px' }}>{item.name}</span>
-        </div>
-    );
+    const handleUpdateLocation = async () => {
+        if (!selectedJudet || !selectedCity) {
+            setMessage('Please select both a county and a city.');
+            return;
+        }
+
+        setUpdating(true);
+        setMessage('');
+
+        try {
+            const response = await axios.put('https://dreamsdeluxeapi.azurewebsites.net/client/updateclientlocation', {
+                clientId: userId,
+                location: selectedCity.name,
+                county: selectedJudet.name,
+            });
+
+            if (response.status === 200) {
+                setMessage('Location updated successfully!');
+                setRedirecting(true);
+                setTimeout(() => {
+                    navigate("/user");
+                }, 2000);
+            } else {
+                setMessage('Failed to update location.');
+            }
+        } catch (error) {
+            console.error('Error updating location:', error);
+            setMessage('Error updating location. Please try again.');
+        } finally {
+            localStorage.setItem('location', selectedCity.name);
+            localStorage.setItem('county', selectedJudet.name);
+            setUpdating(false);
+        }
+    };
 
     return (
         <>
@@ -97,51 +132,37 @@ const UserProfile = () => {
             <div className="user-profile" style={loader ? { pointerEvents: 'none' } : {}}>
                 <h3 className="profile-title">Hello, {userName || 'Loading...'} !</h3>
 
-                <div style={{ position: 'relative' , width: '50%', margin: 'auto' }}>
+                <div style={{ position: 'relative', width: '50%', margin: 'auto' ,zIndex: 1}}>
+                    <label htmlFor="">Location </label>
                     <label htmlFor="">County </label>
-                    <ReactSearchAutocomplete
-                        items={judete}
-                        onSearch={(string, results) => console.log(string, results)}
-                        onHover={(result) => console.log(result)}
-                        onSelect={handleOnSelectJudet}
-                        onFocus={() => console.log('Focused')}
-                        autoFocus
-                        formatResult={formatResult}
-                        placeholder="Select a county..."
-                        defaultValue={selectedJudet?.name || ''}
-                        styling={{
-                            zIndex: 10,
-                            position: 'absolute',
-                            backgroundColor: 'white',
-                        }}
-                    />
+                    <ReactSearchAutocomplete  items={judete} onSelect={handleOnSelectJudet} placeholder="Select a county..." />
                 </div>
 
                 <br />
 
-                <div style={{ position: 'relative', width:"50%", margin:"auto" }}>
+                <div style={{ position: 'relative', width: "50%", margin: "auto" }}>
                     <label htmlFor="">City </label>
-                    <ReactSearchAutocomplete
-                        items={cities}
-                        onSearch={(string, results) => console.log(string, results)}
-                        onHover={(result) => console.log(result)}
-                        onSelect={handleOnSelectCity}
-                        onFocus={() => console.log('Focused')}
-                        autoFocus
-                        formatResult={formatResult}
-                        placeholder="Select a city..."
-                        defaultValue={selectedCity?.name || ''}
-                        styling={{
-                            zIndex: 9,
-                            position: 'absolute',
-                            backgroundColor: 'white',
-                        }}
-                    />
+                    <ReactSearchAutocomplete items={cities} onSelect={handleOnSelectCity} placeholder="Select a city..." />
+                </div>
+
+                <br />
+
+                <div className="update-location-container">
+                    {redirecting ? (
+                        <div className="redirect-spinner">
+                            <Spinner />
+                            <p>Redirecting...</p>
+                        </div>
+                    ) : (
+                        <button className="update-location-btn" onClick={handleUpdateLocation} disabled={updating}>
+                            {updating ? 'Updating...' : 'Update location'}
+                        </button>
+                    )}
+                    {message && <p className="update-message">{message}</p>}
                 </div>
 
                 <UserNavBar />
             </div>
-
         </>
     );
 };
