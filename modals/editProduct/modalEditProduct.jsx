@@ -99,7 +99,7 @@ const ModalEditMenu = ({ onClose, userId, prodId, onUpdateProduct }) => {
     <form className='modalForm' onSubmit={handleSubmit}>
       <h2 className='titleModalEditProduct'>{prodId ? 'Edit product' : 'View product'}</h2>
 
-      <label htmlFor="productNameEdit" className='modalLbl nameProductEditLbl'>Product Name:</label>
+      <label htmlFor="productNameEdit" className='modalLbl nameProductEditLbl'>Product name:</label>
       <input 
         id="productNameEdit"
         type="text" 
@@ -111,7 +111,7 @@ const ModalEditMenu = ({ onClose, userId, prodId, onUpdateProduct }) => {
         disabled={!prodId} // Disable input if we're not editing
       />
 
-      <label htmlFor="productPriceEdit" className='modalLbl priceProductEditLbl'>Product Price:</label>
+      <label htmlFor="productPriceEdit" className='modalLbl priceProductEditLbl'>Product price:</label>
       <input 
         id="productPriceEdit"
         type="number" 
@@ -125,7 +125,7 @@ const ModalEditMenu = ({ onClose, userId, prodId, onUpdateProduct }) => {
         disabled={!prodId} // Disable input if we're not editing
       />
 
-      <label htmlFor="productTypeMenuEdit" className='modalLbl modalLblType'>Product Type:</label>
+      <label htmlFor="productTypeMenuEdit" className='modalLbl modalLblType'>Product type:</label>
       <select 
         id="productTypeMenuEdit" 
         className="modalInput" 

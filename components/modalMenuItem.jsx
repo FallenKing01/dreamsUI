@@ -76,7 +76,7 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
     <form className='modalForm' onSubmit={handleSubmit}>
       <h2 className='titleModal'>Create a new product</h2>
 
-      <label htmlFor="productName" className='modalLbl modalCreateLblName'>Product Name:</label>
+      <label htmlFor="productName" className='modalLbl modalCreateLblName'>Product name:</label>
       <br />
       <br />
       <input 
@@ -91,7 +91,7 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
       <br />
       <br />  
 
-      <label htmlFor="productPrice" className='modalLbl modalLblPrice'>Product Price:</label>
+      <label htmlFor="productPrice" className='modalLbl modalLblPrice'>Product price:</label>
       <br />
       <br />
       <input 
@@ -108,7 +108,7 @@ const ModalAddMenu = ({ onClose, userId, onAddProduct }) => {
       <br />
       <br />
 
-      <label htmlFor="productTypeMenu" className='modalLbl modalLblTip'>Product Type:</label>
+      <label htmlFor="productTypeMenu" className='modalLbl modalLblTip'>Product type:</label>
       <br />
       <br />
       <select 

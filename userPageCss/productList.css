@@ -1,3 +1,18 @@
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.search-products-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Chatbot styles */
 .chat-bot-user {
   position: fixed;
   width: 80px;
@@ -148,9 +163,17 @@
 }
 
 /* Media Queries for Larger Screens (Laptop and Desktop) */
+@media (min-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-/* For screens larger than 1024px (Laptop and Desktop) */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .chat-bot-user {
     width: 100px;
     height: 100px;
@@ -193,29 +216,23 @@
     margin-top: -10px;
   }
 
-  /* Chatbot message padding and text adjustments */
   .chat-message {
-    padding: 12px; /* Increased padding for better readability */
+    padding: 12px;
   }
 
-  .user-message {
-    max-width: 85%; /* Slightly increased max-width to make it look balanced */
-  }
-
+  .user-message,
   .bot-message {
     max-width: 85%;
   }
 
-  /* Adjust button sizes */
   .chatbot-footer button {
     padding: 8px 15px;
     font-size: 1.2em;
   }
 }
 
-.search-products-category{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+@media (min-width: 1440px) {
+  .product-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

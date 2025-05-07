@@ -9,15 +9,19 @@
 }
 #productCreateName,#productCreatePrice,#productCreateTypeMenu{
   margin-left: -55px;
+
+}
+#productCreateName{
+  width: 70%;
 }
 #productCreatePrice{
-
-  width: 65%;
-
+  width: 70%;
 }
 #productCreateTypeMenu{
-  width: 69%;
+  width: 75%;
 }
+
+
 .modalCreateLblName{
   margin-top: -40px !important;
 }
@@ -39,7 +43,7 @@
 }
 
 #productQty {
-  width: 66% !important;
+  width: 50% !important;
   margin-left: -60px;
 }
 #productSelect {
@@ -47,13 +51,13 @@
   margin-left: -60px;
 }
 .modalAddProductCloseBtn {
-  background-color: red;
+  background-color: #D9534F;
   margin-top: 81%;
   margin-left: -95%;
 }
 
 .closeCreateTable{
-  background-color: red;
+  background-color: #D9534F;
 margin-right: 30px;
 }
 
@@ -106,7 +110,7 @@ margin-right: 30px;
 }
 
 .submitCreateTable, .submitCreateMenuProduct, .submitEditMenuProduct {
-  background: linear-gradient(to bottom, #00ff4c, #00fd00c5);
+  background: #3CB371;
 }
 .submitCreateMenuProduct{
   position: absolute;
@@ -114,7 +118,7 @@ margin-right: 30px;
   left: 80px;
 }
 .closeCreateMenuProduct, .closeEditMenuProduct {
-  background-color: red;
+  background-color: #D9534F;
 }
 .closeCreateMenuProduct{
   position: absolute;

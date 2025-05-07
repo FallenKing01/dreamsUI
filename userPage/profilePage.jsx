@@ -18,6 +18,8 @@ const UserProfile = () => {
     const [updating, setUpdating] = useState(false);
     const [message, setMessage] = useState('');
     const [redirecting, setRedirecting] = useState(false);
+    const [clientData, setclientData] = useState({});
+
     const navigate = useNavigate(); // Initialize navigate
 
     useEffect(() => {
@@ -25,6 +27,7 @@ const UserProfile = () => {
             try {
                 const response = await axios.get(`https://dreamsdeluxeapi.azurewebsites.net/client/getclient/${userId}`);
                 setUserName(response.data.name);
+                setclientData(response.data);
             } catch (error) {
                 console.error('Error fetching user:', error);
             } finally {
@@ -135,14 +138,14 @@ const UserProfile = () => {
                 <div style={{ position: 'relative', width: '50%', margin: 'auto' ,zIndex: 1}}>
                     <label htmlFor="">Location </label>
                     <label htmlFor="">County </label>
-                    <ReactSearchAutocomplete  items={judete} onSelect={handleOnSelectJudet} placeholder="Select a county..." />
+                    <ReactSearchAutocomplete  items={judete} onSelect={handleOnSelectJudet} placeholder={clientData.county} />
                 </div>
 
                 <br />
 
                 <div style={{ position: 'relative', width: "50%", margin: "auto" }}>
                     <label htmlFor="">City </label>
-                    <ReactSearchAutocomplete items={cities} onSelect={handleOnSelectCity} placeholder="Select a city..." />
+                    <ReactSearchAutocomplete items={cities} onSelect={handleOnSelectCity} placeholder={clientData.location} />
                 </div>
 
                 <br />

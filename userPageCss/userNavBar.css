@@ -5,6 +5,7 @@
   bottom: 0;
   width: 100%; /* Full width */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+  z-index: 100;
 }
 
 .navbar-list {

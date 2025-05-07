@@ -7,8 +7,6 @@
     margin-left: 15px;
     background: #3CB371;
     border-radius: 25px;
-
-
     
 }
 .btn-Delete{
@@ -76,4 +74,9 @@
     text-align: center;
     align-items: center;
     margin-left: -135px;
+}
+.rating-card{
+    margin-top: 45px;
+    font-size: 20px;    
+    margin-left: 150px;
 }

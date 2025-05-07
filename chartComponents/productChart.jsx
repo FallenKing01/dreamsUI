@@ -10,7 +10,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const ProductChart = ({ adminId }) => {
   const [chartData, setChartData] = useState(null);
-  const [dailySalesTitle, setDailySalesTitle] = useState('Top 5 Products Sold Today');
+  const [dailySalesTitle, setDailySalesTitle] = useState('Top 5 products sold today');
   adminId = localStorage.getItem('userId');
 
   console.log(adminId);
