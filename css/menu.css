@@ -4,7 +4,7 @@
   display: flex;
 }
 .delMenuProd{
-  background-color: red;
+  background: #D9534F	;
 }
 .menuContent {
   width: 60%;
@@ -35,11 +35,11 @@
 }
 
 .menuTable tbody tr:nth-child(odd) {
-  background-color: #f0f0f0; /* Set the background color for odd rows */
+  background-color: #e6e4e4; /* Set the background color for odd rows */
 }
 
 .menuTable tbody tr:nth-child(even) {
-  background-color: white; /* Set the background color for even rows */
+  background-color: #c4c0c0; /* Set the background color for even rows */
 }
 
 .menuButtons {

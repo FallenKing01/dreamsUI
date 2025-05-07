@@ -139,7 +139,7 @@ export default function Bill() {
 
         // Start printing
         writer.write(ESC + '!' + '\x38'); // Bold, large text
-        writer.write('Dreams Deluxe Restaurant' + LF);
+        writer.write('Bill' + LF);
         writer.write(ESC + '!' + '\x00'); // Reset font
         writer.write('--------------------------------' + LF);
         writer.write('Item         Qty  Price   Total' + LF); // Adjusted header
@@ -206,7 +206,7 @@ export default function Bill() {
                     <td>{item.qty}</td>
                     <td>{item.price}</td>
                     <td>
-                      <button className="deleteButton" onClick={() => handleDelete(item.id)}>Delete</button>
+                      <button className="deleteButton" id="delte-item-menu" onClick={() => handleDelete(item.id)}>Delete</button>
                     </td>
                   </tr>
                 ))}

@@ -16,7 +16,7 @@ const CreateBtn = () => {
 
   return (
     <div>
-      <button onClick={openModal} className="create-btn" >Create Table</button>
+      <button onClick={openModal} className="create-btn" >Create table</button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <ModalContent onClose={closeModal} />
       </Modal>

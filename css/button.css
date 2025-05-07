@@ -3,6 +3,8 @@
     left: 85%;
     top: 5%;
     width: 180px;
+    background-color: #3CB371;
+    font-size: 1.1;
 }
 .editProductBtn{
 
@@ -20,7 +22,7 @@ button::before {
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #6A00B6, #4B0082); /* Darker purple gradient on hover */
+    background: #31965E; /* Darker purple gradient on hover */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 12px rgba(0, 0, 0, 0.2); /* Adjusted shadow on hover */
 }
 
@@ -28,7 +30,7 @@ button:hover {
     position: relative;
     display: flex;
     justify-content: center ;
-    background-color: #00ff4c;
+    background-color: #EF8354;
     left: -27%;
     margin-top: 2%;
 }
@@ -45,10 +47,10 @@ button:hover {
 }
 
 .addProducts{
-    background: linear-gradient(to bottom, #00ff4c, #00fd00c5); /* Purple gradient background */
+    background-color: #3CB371;
     align-items: center;
     justify-content: center;
-   
+    display: flex;
 }
 .addProductsMenu{
     left: 85%;

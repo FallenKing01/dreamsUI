@@ -5,7 +5,7 @@
     font-size: 14px;
     margin-top: 14px;
     margin-left: 15px;
-    background: linear-gradient(to bottom, #008000, #008000);
+    background: #3CB371;
     border-radius: 25px;
 
 
@@ -19,7 +19,7 @@
     font-size: 14px;
     margin-top: 14px;
     margin-left: 165px;
-    background: linear-gradient(to bottom, #ff0000, #ff0000);
+    background: #D9534F	;
     border-radius: 25px;
 }
 .openRestaurant{
@@ -52,8 +52,8 @@
     font-size: 14px;
     margin-top: 14px;
     margin-left: 15px;
-    background: linear-gradient(to bottom, #008000, #008000);
-    border-radius: 25px;
+    background: #3CB371;
+        border-radius: 25px;
 }
 .emplDelete{
     position: absolute;
@@ -63,7 +63,7 @@
     font-size: 14px;
     margin-top: 14px;
     margin-left: 245px;
-    background: linear-gradient(to bottom, #ff0000, #ff0000);
+    background: #D9534F	;
     border-radius: 25px;
 
 }

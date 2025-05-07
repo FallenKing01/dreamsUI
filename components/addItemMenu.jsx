@@ -16,7 +16,7 @@ const AddItemInMenu = ({userId,onAddProduct}) => {
 
   return (
     <div>
-      <button onClick={openModal} className="addProducts createProductsMenuBtn" >Add product</button>
+      <button onClick={openModal} className="createProductsMenuBtn" >Add product</button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <ModalAddMenu onClose={closeModal} userId={userId} onAddProduct={onAddProduct}/>
       </Modal>

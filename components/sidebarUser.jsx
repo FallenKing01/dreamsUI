@@ -9,7 +9,7 @@ function SidebarUser() {
 
     const handleLogout = () => {
       // Perform any logout logic if needed (e.g., clearing tokens)
-      navigate('/login');
+      navigate('/');
     };
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -18,7 +18,7 @@ function SidebarUser() {
   return (
     <>
       <button className="nonadmin-open-btn" onClick={toggleSidebar}>
-        <FontAwesomeIcon icon={faBars} /> Open Sidebar
+        <FontAwesomeIcon icon={faBars} /> Open sidebar
       </button>
 
       <div className={`nonadmin-sidebar ${isOpen ? 'nonadmin-sidebar-open' : ''}`}>

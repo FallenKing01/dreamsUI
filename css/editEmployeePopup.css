@@ -12,11 +12,11 @@
 }
 
 .popup-content {
-    background: white;
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
+    
 }
 
 .popup-content h2 {
@@ -35,4 +35,11 @@
 .popup-content input {
     padding: 8px;
     font-size: 14px;
+    
+}
+.textinput-editemployee{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
 }

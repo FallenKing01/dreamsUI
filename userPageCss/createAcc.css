@@ -1,0 +1,85 @@
+.create-acc-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+ 
+  .create-acc-page-form-wrapper {
+    background-color: #2D3142;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+  }
+  
+  .create-acc-page-form h1 {
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .create-acc-page-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-acc-page-field label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .create-acc-page-field input {
+   
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s;
+  }
+  
+  .create-acc-page-field input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .create-acc-page-submit {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    background: #3CB371;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .label-create-acc{
+    color:white !important;
+  }
+  .redirect-login{
+    margin-top: 20px !important;
+    display: flex;
+    justify-content: end !important;
+  }
+  .create-acc-page-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 480px) {
+    .create-acc-page-form-wrapper {
+      padding: 20px;
+    }
+    
+  
+    .create-acc-page-form h1 {
+      font-size: 1.25rem;
+    }
+  }

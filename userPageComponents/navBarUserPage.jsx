@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faTowerBroadcast } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faTowerBroadcast,faSignOut } from '@fortawesome/free-solid-svg-icons';
 import '../userPageCss/userNavBar.css'; // Import your CSS file
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
@@ -23,9 +23,9 @@ const UserNavBar = () => {
         </li>
         
         <li className="navbar-item">
-          <Link to="/events" className="navbar-link">
-            <FontAwesomeIcon icon={faTowerBroadcast} className="navbar-icon" size="lg" />
-            <span className="navbar-label">Events</span>
+          <Link to="/" className="navbar-link">
+            <FontAwesomeIcon icon={faSignOut} className="navbar-icon" size="lg" />
+            <span className="navbar-label">Logout</span>
           </Link>
         </li>
       </ul>

@@ -17,7 +17,7 @@ const AddProducts = ({ tableId, onProductAdded, menuProducts }) => {
 
   return (
     <div>
-      <button onClick={openModal} className="addProducts">Add Product</button>
+      <button onClick={openModal} className="addProducts">Add product</button>
       <ModalAddBarProduct isOpen={isModalOpen} onClose={closeModal}>
         <ModalAddProduct onClose={closeModal} tableId={tableId} onProductAdded={onProductAdded} menuProducts={menuProducts} />
       </ModalAddBarProduct>

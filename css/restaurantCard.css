@@ -9,6 +9,12 @@
     border-radius: 10px;
     overflow: hidden;
 }
+.openRestaurant{
+    background: #3CB371;
+}
+.openReviews{
+    background: #FF6347;
+}
 
 .imgTable-restaurant {
     width: 100%;
@@ -42,7 +48,7 @@
     height: 35px;
     position: absolute;
     bottom: 0; /* Stick to the bottom */
-    background-color: #008000;
+    background-color: #2D3142;
     border-radius: 0 0 10px 10px;
     display: flex;
     justify-content: center;

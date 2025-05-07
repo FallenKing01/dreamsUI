@@ -27,7 +27,7 @@ const TableMap = ({ adminId }) => {
 
   return (
     <div>
-      <button onClick={fetchTableMap} className='showTableMap'>Show Table Map</button>
+      <button onClick={fetchTableMap} className='showTableMap'>Show table map</button>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modalContent">
         {tableMap && (
           <div
@@ -45,7 +45,7 @@ const TableMap = ({ adminId }) => {
                 </div>
               );
             })}
-            <button onClick={closeModal} className={`closeMapView ${tableMap.totalRows > 10 ? 'scaledclose' : ''}`}>Close</button>
+            <button  onClick={closeModal} className={`closeMapView ${tableMap.totalRows > 10 ? 'scaledclose' : ''}`}>Close</button>
           </div>
         )}
       </Modal>

@@ -17,12 +17,13 @@ import LunaRestaurantChatbot from '../pages/lunaRestaurant';
 import UserProfile from '../userPage/profilePage';
 import ForgotPassword from '../userPage/forgotPassword';
 import ChangePassword from '../userPage/resetPassword';
+import CreateAccount from '../userPage/createAccount';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage/>} />
+          <Route path="/login" element={<LoginPage/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/table/:id" element={<Bill />} />
 
@@ -40,7 +41,7 @@ function App() {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/forgotpassword" element={<ForgotPassword/>} />
           <Route path="/change-password" element={<ChangePassword/>} />
-
+          <Route path="/" element={<CreateAccount/>} />
           
 
         </Routes>
