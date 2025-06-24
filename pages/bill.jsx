@@ -15,7 +15,6 @@ export default function Bill() {
   const [modalProducts, setModalProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     fetchItems();
   }, [id]);
@@ -113,7 +112,6 @@ export default function Bill() {
         const maxPriceLength = 3;  // Price length
         const maxTotalLength = 6;  // Local total length
 
-        // Function to split product names into 12 character chunks
         const splitName = (name) => {
           const lines = [];
           while (name.length > maxNameLength) {
@@ -180,7 +178,7 @@ export default function Bill() {
         </div>
       ) : (
         <div className="billContainer">
-          <AddProducts tableId={id} onProductAdded={handleProductAdded} menuProducts={modalProducts} />
+          <AddProducts tableId={id} onProductAdded={handleProductAdded}  />
 
           <button className="resetBtn" onClick={handleReset} disabled={loading}>
             {loading ? 'Processing...' : 'Emit the bill'}

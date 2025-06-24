@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../userPageCss/createAcc.css';
 import Alert from '../components/alert';
@@ -16,8 +16,16 @@ const CreateAccount = () => {
     });
 
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false); // Spinner state
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    // Check for existing token and redirect to /home
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/home');
+        }
+    }, [navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,18 +37,21 @@ const CreateAccount = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true); // Show spinner
+        setLoading(true);
         try {
-            const response = await axios.post('https://dreamsdeluxeapi.azurewebsites.net/client/create', formData);
+            const response = await axios.post(
+                'https://dreamsdeluxeapi.azurewebsites.net/client/create',
+                formData
+            );
             console.log(response.data);
-            navigate('/login'); // Navigate after success
+            navigate('/login');
         } catch (error) {
             if (error.response?.status === 409) {
                 setError(true);
             }
             console.error('Error creating account:', error);
         } finally {
-            setLoading(false); // Hide spinner after operation
+            setLoading(false);
         }
     };
 
@@ -48,12 +59,12 @@ const CreateAccount = () => {
         setLoading(true);
         setTimeout(() => {
             navigate('/login');
-        }, 1000); // Simulate transition delay
+        }, 1000);
     };
 
     return (
         <>
-            {loading && <Spinner />} {/* Show spinner when loading */}
+            {loading && <Spinner />}
             {error && <Alert message="Username already exists" />}
             {!loading && (
                 <div className="create-acc-page-container">
@@ -105,7 +116,7 @@ const CreateAccount = () => {
                                 />
                             </div>
 
-                            <div 
+                            <div
                                 className="redirect-login"
                                 onClick={handleRedirectToLogin}
                                 style={{ cursor: 'pointer', textDecoration: 'underline' }}

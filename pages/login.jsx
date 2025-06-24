@@ -97,7 +97,7 @@ export default function LoginPage() {
         </div>
         <div className="forgot-link">
           <a href="/forgotpassword" onClick={handleForgotPassword}>
-            Forgot Password?
+            Forgot password?
           </a>
         </div>
         <button onClick={handleLogin} className="login-btn">

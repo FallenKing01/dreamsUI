@@ -3,9 +3,8 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import axios from 'axios';
 import '../css/chart.css';
-import Spinner from '../components/spinner';  // Fixed typo in Spinner import
+import Spinner from '../components/spinner';  
 
-// Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const ProductChart = ({ adminId }) => {
@@ -13,7 +12,6 @@ const ProductChart = ({ adminId }) => {
   const [dailySalesTitle, setDailySalesTitle] = useState('Top 5 products sold today');
   adminId = localStorage.getItem('userId');
 
-  console.log(adminId);
 
 
   useEffect(() => {
@@ -33,16 +31,14 @@ const ProductChart = ({ adminId }) => {
         const prices = limitedData.map(item => item.productDetails[0]?.price || 0);
         const types = limitedData.map(item => item.productDetails[0]?.type || 'Unknown Type');
 
-        // Define different colors for each bar
         const colors = [
-          'rgba(255, 99, 132, 1)', // Red
-          'rgba(54, 162, 235, 1)', // Blue
-          'rgba(255, 206, 86, 1)', // Yellow
-          'rgba(75, 192, 192, 1)', // Green
-          'rgba(153, 102, 255, 1)'  // Purple
+          'rgba(255, 99, 132, 1)', 
+          'rgba(54, 162, 235, 1)', 
+          'rgba(255, 206, 86, 1)', 
+          'rgba(75, 192, 192, 1)', 
+          'rgba(153, 102, 255, 1)'  
         ];
 
-        // Setting up the chart data
         setChartData({
           labels: labels,
           datasets: [
@@ -54,8 +50,8 @@ const ProductChart = ({ adminId }) => {
               borderWidth: 1,
             },
           ],
-          prices: prices, // Save prices
-          types: types    // Save types
+          prices: prices, 
+          types: types    
         });
 
       } catch (error) {
@@ -143,7 +139,7 @@ const ProductChart = ({ adminId }) => {
         {chartData && (
           <Bar data={chartData} options={options} />
         )}
-        <button className='moreDetailsBtn'>More Details</button>
+        {/* <button className='moreDetailsBtn'>More Details</button> */}
       </div>
     </>
   );

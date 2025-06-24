@@ -1,23 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/addProductInBar.css';
 import { Product } from '../classes/product.jsx';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
-const ModalAddProduct = ({ onClose, tableId, onProductAdded, menuProducts }) => {
+const ModalAddProduct = ({ onClose, tableId, onProductAdded }) => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [qty, setQty] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    setProducts(menuProducts.map(product => ({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      ...product
-    })));
-  }, [menuProducts]);
+  const handleSearchInput = async (searchString) => {
+    if (!searchString) {
+      setProducts([]);
+      return;
+    }
+
+    const adminId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await axios.get(
+        `https://dreamsdeluxeapi.azurewebsites.net/menu/searchproduct/${adminId}/${searchString}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const menuProducts = response.data;
+      const formattedProducts = menuProducts.map(product => ({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        ...product
+      }));
+
+      setProducts(formattedProducts);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
 
   const handleOnSelect = (item) => {
     setSelectedProduct(item);
@@ -27,30 +51,44 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded, menuProducts }) => 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (!selectedProduct) {
       alert('Please select a product');
       return;
     }
+
     setIsSubmitting(true);
 
     try {
       const token = localStorage.getItem('token');
+      const userId = localStorage.getItem("userId");
 
-      const response = await axios.post(`https://dreamsdeluxeapi.azurewebsites.net/products/add/${localStorage.getItem("userId")}`, {
-        menuProductId: selectedProduct.id.toString(),
-        name: selectedProduct.name,
-        price: parseFloat(selectedProduct.price),
-        qty: parseInt(qty, 10),
-        table_id: tableId.toString(),
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await axios.post(
+        `https://dreamsdeluxeapi.azurewebsites.net/products/add/${userId}`,
+        {
+          menuProductId: selectedProduct.id.toString(),
+          name: selectedProduct.name,
+          price: parseFloat(selectedProduct.price),
+          qty: parseInt(qty, 10),
+          table_id: tableId.toString(),
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const productCreatedId = response.data.id;
       const productCreatedQty = response.data.qty;
-      const newProduct = new Product(productCreatedId, selectedProduct.name, parseFloat(selectedProduct.price), productCreatedQty, tableId.toString(), selectedProduct.id.toString());
+      const newProduct = new Product(
+        productCreatedId,
+        selectedProduct.name,
+        parseFloat(selectedProduct.price),
+        productCreatedQty,
+        tableId.toString(),
+        selectedProduct.id.toString()
+      );
 
       onProductAdded(newProduct);
       onClose();
@@ -69,20 +107,19 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded, menuProducts }) => 
         <div className='bar-search-bar-product'>
           <ReactSearchAutocomplete
             items={products}
+            onSearch={handleSearchInput}
             onSelect={handleOnSelect}
             autoFocus
             placeholder="Search for a product"
             styling={{
-              zIndex: 6, // Higher z-index to ensure visibility
+              zIndex: 6,
               borderRadius: '4px',
               boxShadow: '0 0 5px rgba(0, 123, 255, 1 )',
               height: '38px',
               backgroundColor: '#f9f9f9',
             }}
             formatResult={(item) => (
-              <>
-                <span>{item.name}</span>
-              </>
+              <span>{item.name}</span>
             )}
           />
         </div>
@@ -100,6 +137,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded, menuProducts }) => 
           required
           min={1}
         />
+
         <br /><br />
 
         <button
@@ -109,7 +147,13 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded, menuProducts }) => 
         >
           Submit
         </button>
-        <button type="button" className="bar-modal-add-product-close-btn" onClick={onClose}>Close</button>
+        <button
+          type="button"
+          className="bar-modal-add-product-close-btn"
+          onClick={onClose}
+        >
+          Close
+        </button>
       </form>
     </div>
   );

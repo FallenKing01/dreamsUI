@@ -37,7 +37,7 @@ const ForgotPassword = () => {
     return (
         <div className="forgot-password-wrapper">
             <div className="forgot-password-container">
-                <h2 className='forgotPassword-title'>Forgot Password</h2>
+                <h2 className='forgotPassword-title'>Forgot password</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="forgot-password-form-group">
                         <label htmlFor="email">Email:</label>

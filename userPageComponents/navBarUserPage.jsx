@@ -23,7 +23,7 @@ const UserNavBar = () => {
         </li>
         
         <li className="navbar-item">
-          <Link to="/" className="navbar-link">
+          <Link to="/login" className="navbar-link">
             <FontAwesomeIcon icon={faSignOut} className="navbar-icon" size="lg" />
             <span className="navbar-label">Logout</span>
           </Link>
