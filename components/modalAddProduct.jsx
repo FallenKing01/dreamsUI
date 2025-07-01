@@ -16,7 +16,7 @@ const ModalAddProduct = ({ onClose, tableId, onProductAdded }) => {
       return;
     }
 
-    const adminId = localStorage.getItem('userId');
+    const adminId = localStorage.getItem('adminId');
     const token = localStorage.getItem('token');
 
     try {
